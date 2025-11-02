@@ -4,9 +4,9 @@
 import AppLayout from '@/components/app-layout';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { hubs } from '@/lib/hubs';
-import { ArrowRight, ShieldCheck, Zap, Smartphone, Lock, Rocket, Newspaper, Mail, Scale, Landmark, GraduationCap, Cpu, Heart } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, Smartphone, Lock, Rocket, Mail, Scale, Landmark, GraduationCap, Cpu, Heart } from 'lucide-react';
 
 export default function Home() {
   const whyChooseUs = [
@@ -149,7 +149,7 @@ export default function Home() {
                     </div>
                 </div>
                  <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} Calculation.site. All Rights Reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} <Link href="/" className="text-primary hover:underline">Calculation.site</Link>. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
