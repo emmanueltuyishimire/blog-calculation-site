@@ -9,6 +9,12 @@ type Hub = {
 
 export const hubs: Hub[] = [
     {
+        title: 'Education & Science',
+        description: 'Simplify complex equations for students, teachers, and curious minds. Covers physics, biology, and chemistry.',
+        href: 'https://maths.calculation.site',
+        icon: GraduationCap,
+    },
+    {
         title: 'Finance & Investment',
         description: 'Manage money smarter with easy-to-use calculators for loans, savings, mortgages, taxes, and investments.',
         href: '/coming-soon',
@@ -19,12 +25,6 @@ export const hubs: Hub[] = [
         description: 'Track your body metrics and fitness goals effortlessly, from BMI and calorie intake to BMR and macro ratios.',
         href: '/coming-soon',
         icon: Heart,
-    },
-    {
-        title: 'Education & Science',
-        description: 'Simplify complex equations for students, teachers, and curious minds. Covers physics, biology, and chemistry.',
-        href: 'https://maths.calculation.site',
-        icon: GraduationCap,
     },
     {
         title: 'ICT & Tech Utilities',
