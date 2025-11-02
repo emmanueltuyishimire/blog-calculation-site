@@ -1,40 +1,19 @@
 'use client';
 
 import React from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookMarked, History as HistoryIcon, Sigma } from 'lucide-react';
-import { formulaLibrary } from '@/lib/formulas';
-import type { CalculationHistoryItem } from '@/lib/types';
-import { formatDistanceToNow } from 'date-fns';
 import { SidebarHeader, SidebarContent as SidebarBody, SidebarFooter } from '@/components/ui/sidebar';
+import { Sigma, Info, Mail, FileText, Shield, AlertTriangle, Milestone } from 'lucide-react';
+import {
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+} from '@/components/ui/sidebar';
+import Link from 'next/link';
 
 interface AppSidebarProps {
-  setFormula: (formula: string) => void;
-  history: CalculationHistoryItem[];
-  setHistory: React.Dispatch<React.SetStateAction<CalculationHistoryItem[]>>;
 }
 
-export default function AppSidebar({ setFormula, history, setHistory }: AppSidebarProps) {
-  const handleSelectFormula = (expression: string) => {
-    setFormula(expression);
-  };
-
-  const handleSelectHistory = (item: CalculationHistoryItem) => {
-    setFormula(item.formula);
-  };
-
-  const handleClearHistory = () => {
-    try {
-      localStorage.removeItem('formulaHistory');
-      setHistory([]);
-    } catch (error) {
-      console.error('Failed to clear history from localStorage', error);
-    }
-  };
-
+export default function AppSidebar({}: AppSidebarProps) {
   return (
     <>
       <SidebarHeader>
@@ -44,26 +23,56 @@ export default function AppSidebar({ setFormula, history, setHistory }: AppSideb
         </div>
       </SidebarHeader>
       <SidebarBody className="p-0">
-        <Tabs defaultValue="library" className="flex h-full flex-col">
-          <TabsList className="mx-2 grid w-auto grid-cols-2">
-            <TabsTrigger value="library"><BookMarked className="mr-2 h-4 w-4" /> Library</TabsTrigger>
-            <TabsTrigger value="history"><HistoryIcon className="mr-2 h-4 w-4" /> History</TabsTrigger>
-          </TabsList>
-          <TabsContent value="library" className="mt-0 flex-1 overflow-hidden">
-            <ScrollArea className="h-full p-2">
-              <div className="p-4 text-center text-sm text-sidebar-foreground/70">
-                No formulas in library.
-              </div>
-            </ScrollArea>
-          </TabsContent>
-          <TabsContent value="history" className="mt-0 flex-1 overflow-hidden">
-             <ScrollArea className="h-full p-2">
-              <div className="p-4 text-center text-sm text-sidebar-foreground/70">
-                No calculations yet.
-              </div>
-            </ScrollArea>
-          </TabsContent>
-        </Tabs>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link href="/about">
+                <Info />
+                <span>About</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link href="/contact">
+                <Mail />
+                <span>Contact</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link href="/terms-and-conditions">
+                <FileText />
+                <span>Terms & Conditions</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link href="/privacy-policy">
+                <Shield />
+                <span>Privacy Policy</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link href="/disclaimer">
+                <AlertTriangle />
+                <span>Disclaimer</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link href="/sitemap">
+                <Milestone />
+                <span>Sitemap</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarBody>
       <SidebarFooter>
         

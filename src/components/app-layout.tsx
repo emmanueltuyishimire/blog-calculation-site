@@ -28,11 +28,7 @@ export default function AppLayout() {
     <SidebarProvider>
       <div className="min-h-screen bg-background">
         <Sidebar>
-          <AppSidebar
-            setFormula={setFormula}
-            history={history}
-            setHistory={setHistory}
-          />
+          <AppSidebar />
         </Sidebar>
         <SidebarInset>
           <div className="flex h-screen flex-col">
