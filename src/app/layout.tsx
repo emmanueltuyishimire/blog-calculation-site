@@ -5,11 +5,14 @@ import { Toaster } from '@/components/ui/toaster';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import Script from 'next/script';
 import { cn } from '@/lib/utils';
+import nextConfig from '../../next.config';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk', display: 'swap' });
 
-const siteUrl = 'https://calculation.site';
+const basePath = nextConfig.basePath || '';
+const siteUrl = `https://emmanueltuyishimire.github.io${basePath}`;
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
   creator: 'Calculation.site',
   publisher: 'Calculation.site',
   robots: 'index, follow',
-  manifest: '/manifest.json',
+  manifest: `${basePath}/manifest.json`,
   openGraph: {
     type: 'website',
     url: siteUrl,
@@ -32,7 +35,7 @@ export const metadata: Metadata = {
     siteName: 'Calculation.site',
     images: [
       {
-        url: '/og-image.png',
+        url: `${basePath}/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'Calculation.site Logo and Title',
@@ -43,10 +46,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Calculation.site – Smart Online Calculators & Everyday Tools',
     description: 'An intelligent app for free online calculators, converters, and digital tools.',
-    images: ['/og-image.png'],
+    images: [`${basePath}/og-image.png`],
   },
   icons: {
-    apple: '/logo.png',
+    apple: `${basePath}/logo.png`,
+    icon: `${basePath}/favicon.ico`,
+    shortcut: `${basePath}/favicon.ico`,
   },
 };
 
