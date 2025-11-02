@@ -3,7 +3,7 @@ import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Calculator, ArrowRight, Heart, Cpu } from 'lucide-react';
+import { Calculator, ArrowRight, Heart, Cpu, Landmark } from 'lucide-react';
 
 const hubs = [
     {
@@ -23,6 +23,12 @@ const hubs = [
         description: 'A collection of tools for developers, IT experts, and tech enthusiasts.',
         href: 'https://ict.health.calculation.site',
         icon: <Cpu className="size-10 text-primary" />,
+    },
+    {
+        title: 'Finance Calculators Hub',
+        description: 'A collection of tools for budgeting, investing, and financial planning.',
+        href: 'https://finance.health.calculation.site',
+        icon: <Landmark className="size-10 text-primary" />,
     }
 ]
 
