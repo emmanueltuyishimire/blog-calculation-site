@@ -3,7 +3,7 @@ import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Calculator, ArrowRight } from 'lucide-react';
+import { Calculator, ArrowRight, Heart } from 'lucide-react';
 
 const hubs = [
     {
@@ -11,6 +11,12 @@ const hubs = [
         description: 'A collection of calculators for various mathematical functions and formulas.',
         href: 'https://maths.calculation.site',
         icon: <Calculator className="size-10 text-primary" />,
+    },
+    {
+        title: 'Health & Fitness Calculators',
+        description: 'A collection of calculators for tracking your health and fitness goals.',
+        href: 'https://health.calculation.site',
+        icon: <Heart className="size-10 text-primary" />,
     }
 ]
 
