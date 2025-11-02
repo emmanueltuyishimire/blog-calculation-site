@@ -9,13 +9,13 @@ export default function AboutPage() {
       <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-bold">About Formula First</CardTitle>
+            <CardTitle className="text-3xl font-bold">About Calculation Site</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6 text-lg text-muted-foreground">
             <div className="space-y-4">
                 <h2 className="text-2xl font-semibold text-foreground">Who We Are</h2>
                 <p>
-                    Welcome to Formula First, your all-in-one destination for simple, accurate, and reliable online tools.
+                    Welcome to Calculation Site, your all-in-one destination for simple, accurate, and reliable online tools.
                     Our mission is to make everyday problem-solving easier — whether you’re managing your budget, checking your health metrics, converting units, or exploring scientific equations.
                 </p>
                 <p>
@@ -26,7 +26,7 @@ export default function AboutPage() {
             <div className="space-y-4">
                 <h2 className="text-2xl font-semibold text-foreground">What We Do</h2>
                 <p>
-                    Formula First brings together collections of specialized web apps, called Hubs, each focused on a particular topic such as:
+                    Calculation Site brings together collections of specialized web apps, called Hubs, each focused on a particular topic such as:
                 </p>
                 <ul className="space-y-3 pl-5 list-none">
                     <li className="flex items-start">
@@ -83,7 +83,7 @@ export default function AboutPage() {
             <div className="space-y-4 pt-4 border-t">
                 <h2 className="text-xl font-semibold text-foreground">Disclaimer</h2>
                 <p className='text-sm'>
-                    All tools and content on Formula First are provided for educational and informational purposes only.
+                    All tools and content on Calculation Site are provided for educational and informational purposes only.
                     While we strive for accuracy, results should not be considered professional, financial, medical, or legal advice.
                 </p>
             </div>

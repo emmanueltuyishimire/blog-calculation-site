@@ -11,7 +11,7 @@ export default function TermsAndConditionsPage() {
           </CardHeader>
           <CardContent>
             <p>
-              By using Formula First, you agree to our terms and conditions.
+              By using Calculation Site, you agree to our terms and conditions.
               Please read them carefully. The service is provided as-is, and we
               are not liable for any errors in calculations.
             </p>

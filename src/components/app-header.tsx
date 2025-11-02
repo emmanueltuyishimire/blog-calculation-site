@@ -10,7 +10,7 @@ export default function AppHeader() {
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2">
             <Sigma className="size-8 text-primary" />
-            <h2 className="text-xl font-bold font-headline hidden sm:block">Formula First</h2>
+            <h2 className="text-xl font-bold font-headline hidden sm:block">Calculation Site</h2>
         </Link>
       </div>
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 ml-6">

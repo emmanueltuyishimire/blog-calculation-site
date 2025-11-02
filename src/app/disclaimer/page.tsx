@@ -11,7 +11,7 @@ export default function DisclaimerPage() {
           </CardHeader>
           <CardContent>
             <p>
-              The calculations provided by Formula First are for informational
+              The calculations provided by Calculation Site are for informational
               purposes only and should not be used for making critical
               decisions without verification. We are not responsible for any
               consequences arising from the use of this app.

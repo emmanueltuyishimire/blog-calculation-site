@@ -12,7 +12,7 @@ export default function ContactPage() {
           <CardContent>
             <p>
               Have questions or feedback? We'd love to hear from you. Please
-              reach out to us at contact@formulafirst.com.
+              reach out to us at contact@calculation.site.
             </p>
           </CardContent>
         </Card>
