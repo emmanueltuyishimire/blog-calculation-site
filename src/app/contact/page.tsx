@@ -1,19 +1,64 @@
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
+import { Mail, Bug, Lightbulb, Briefcase, AlertTriangle } from 'lucide-react';
 
 export default function ContactPage() {
   return (
     <AppLayout>
-      <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
+      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
         <Card>
-          <CardHeader>
-            <CardTitle>Contact Us</CardTitle>
+          <CardHeader className="text-center">
+            <CardTitle className="text-3xl font-bold">Contact Us</CardTitle>
           </CardHeader>
-          <CardContent>
-            <p>
-              Have questions or feedback? We'd love to hear from you. Please
-              reach out to us at contact@calculation.site.
+          <CardContent className="space-y-8 text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-center">
+              We’d love to hear from you! Whether you have feedback, suggestions, or questions about our tools and resources, we’re here to help.
             </p>
+
+            <div className="space-y-4 rounded-lg border bg-card p-6 text-card-foreground shadow-sm">
+                <h2 className="text-2xl font-semibold text-foreground flex items-center"><Mail className="mr-3 h-6 w-6 text-primary" /> Get in Touch</h2>
+                <p>
+                    If you’d like to contact us, please reach out via email at:
+                </p>
+                <p className='text-center'>
+                    <a href="mailto:calculation250@gmail.com" className="font-semibold text-primary hover:underline text-xl">
+                    calculation250@gmail.com
+                    </a>
+                </p>
+                <p className="text-sm text-center">
+                    We aim to respond to all messages within 48 hours on business days.
+                </p>
+            </div>
+
+            <div className="space-y-4">
+                <h2 className="text-2xl font-semibold text-foreground">What You Can Contact Us About</h2>
+                <ul className="space-y-3 pl-5 list-none">
+                    <li className="flex items-start">
+                        <Bug className="mr-3 mt-1 h-5 w-5 text-primary" />
+                        <span>Reporting a bug or issue with one of our tools</span>
+                    </li>
+                    <li className="flex items-start">
+                        <Lightbulb className="mr-3 mt-1 h-5 w-5 text-primary" />
+                        <span>Requesting a new calculator or feature</span>
+                    </li>
+                    <li className="flex items-start">
+                        <Briefcase className="mr-3 mt-1 h-5 w-5 text-primary" />
+                        <span>Business or collaboration inquiries</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div className="space-y-2 pt-4 border-t flex items-start">
+                <AlertTriangle className="mr-3 mt-1 h-5 w-5 text-amber-500" />
+                <div className='text-sm'>
+                    <h3 className='font-semibold text-foreground mb-1'>Note</h3>
+                    <p>
+                        We do not collect personal data beyond what’s necessary to respond to your inquiries. For details, please review our <Link href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>.
+                    </p>
+                </div>
+            </div>
+
           </CardContent>
         </Card>
       </div>
