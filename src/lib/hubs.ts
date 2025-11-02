@@ -1,4 +1,3 @@
-
 import { Heart, Landmark, GraduationCap, Cpu, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker, type LucideIcon } from 'lucide-react';
 
 type Hub = {
@@ -12,13 +11,13 @@ export const hubs: Hub[] = [
     {
         title: 'Finance & Investment',
         description: 'Manage money smarter with easy-to-use calculators for loans, savings, mortgages, taxes, and investments.',
-        href: 'https://finance.health.calculation.site',
+        href: '/coming-soon',
         icon: Landmark,
     },
     {
         title: 'Health & Fitness',
         description: 'Track your body metrics and fitness goals effortlessly, from BMI and calorie intake to BMR and macro ratios.',
-        href: 'https://health.calculation.site',
+        href: '/coming-soon',
         icon: Heart,
     },
     {
@@ -30,43 +29,43 @@ export const hubs: Hub[] = [
     {
         title: 'ICT & Tech Utilities',
         description: 'Handy tools for developers and network engineers, including bandwidth calculators and subnet finders.',
-        href: 'https://ict.health.calculation.site',
+        href: '/coming-soon',
         icon: Cpu,
     },
     {
         title: 'Everyday Utilities',
         description: 'Get fast answers to daily questions — convert units, calculate time differences, measure areas, or check your GPA.',
-        href: 'https://unit.health.calculation.site',
+        href: '/coming-soon',
         icon: Scale,
     },
     {
         title: 'Side Hustlers Calculators',
         description: 'Calculators and tools to help you manage your side hustles and freelance work.',
-        href: 'https://hustle.health.calculation.site',
+        href: '/coming-soon',
         icon: Briefcase,
     },
     {
         title: 'Age Calculators Hub',
         description: 'A collection of calculators for determining age and related time calculations.',
-        href: 'https://age.health.calculation.site',
+        href: '/coming-soon',
         icon: Calendar,
     },
     {
         title: 'Physics Calculators Hub',
         description: 'A collection of calculators for various physics formulas and equations.',
-        href: 'https://physics.health.calculation.site',
+        href: '/coming-soon',
         icon: FlaskConical,
     },
     {
         title: 'Biology Calculators Hub',
         description: 'A collection of calculators for various biology formulas and equations.',
-        href: 'https://biology.health.calculation.site',
+        href: '/coming-soon',
         icon: Dna,
     },
     {
         title: 'Chemistry Calculators Hub',
         description: 'A collection of calculators for various chemistry formulas and equations.',
-        href: 'https://chemistry.health.calculation.site',
+        href: '/coming-soon',
         icon: Beaker,
     }
 ];
