@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { SidebarTrigger } from '@/components/ui/sidebar';
+import Link from 'next/link';
 
 interface AppHeaderProps {
   formula: string;
@@ -53,7 +54,44 @@ export default function AppHeader({ formula, result }: AppHeaderProps) {
   return (
     <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
       <SidebarTrigger className="md:hidden" />
-      <h1 className="hidden flex-1 text-2xl font-semibold font-headline md:block">Dashboard</h1>
+      <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+        <Link
+          href="/about"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          About
+        </Link>
+        <Link
+          href="/contact"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Contact
+        </Link>
+        <Link
+          href="/terms-and-conditions"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Terms
+        </Link>
+        <Link
+          href="/privacy-policy"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Privacy
+        </Link>
+        <Link
+          href="/disclaimer"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Disclaimer
+        </Link>
+        <Link
+          href="/sitemap"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Sitemap
+        </Link>
+      </nav>
       <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
