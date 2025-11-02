@@ -3,7 +3,7 @@ import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Calculator, ArrowRight, Heart, Cpu, Landmark, Scale, Briefcase, Calendar, FlaskConical } from 'lucide-react';
+import { Calculator, ArrowRight, Heart, Cpu, Landmark, Scale, Briefcase, Calendar, FlaskConical, Dna } from 'lucide-react';
 
 const hubs = [
     {
@@ -53,6 +53,12 @@ const hubs = [
         description: 'A collection of calculators for various physics formulas and equations.',
         href: 'https://physics.health.calculation.site',
         icon: <FlaskConical className="size-10 text-primary" />,
+    },
+    {
+        title: 'Biology Calculators Hub',
+        description: 'A collection of calculators for various biology formulas and equations.',
+        href: 'https://biology.health.calculation.site',
+        icon: <Dna className="size-10 text-primary" />,
     }
 ]
 
