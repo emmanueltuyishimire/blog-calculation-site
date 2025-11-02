@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   creator: 'Calculation.site',
   publisher: 'Calculation.site',
   robots: 'index, follow',
-  manifest: `/manifest.json`,
   openGraph: {
     type: 'website',
     url: siteUrl,
@@ -47,11 +46,6 @@ export const metadata: Metadata = {
     title: 'Calculation.site – Smart Online Calculators & Everyday Tools',
     description: 'An intelligent app for free online calculators, converters, and digital tools.',
     images: [`/og-image.png`],
-  },
-  icons: {
-    apple: `/logo.png`,
-    icon: `/favicon.ico`,
-    shortcut: `/favicon.ico`,
   },
 };
 
