@@ -3,7 +3,7 @@ import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Calculator, ArrowRight, Heart, Cpu, Landmark, Scale, Briefcase } from 'lucide-react';
+import { Calculator, ArrowRight, Heart, Cpu, Landmark, Scale, Briefcase, Calendar } from 'lucide-react';
 
 const hubs = [
     {
@@ -41,6 +41,12 @@ const hubs = [
         description: 'Calculators and tools to help you manage your side hustles and freelance work.',
         href: 'https://hustle.health.calculation.site',
         icon: <Briefcase className="size-10 text-primary" />,
+    },
+    {
+        title: 'Age Calculators Hub',
+        description: 'A collection of calculators for determining age and related time calculations.',
+        href: 'https://age.health.calculation.site',
+        icon: <Calendar className="size-10 text-primary" />,
     }
 ]
 
