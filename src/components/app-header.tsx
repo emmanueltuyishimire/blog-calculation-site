@@ -1,6 +1,6 @@
 'use client';
 
-import { Download, FileSpreadsheet, FileText, FileType } from 'lucide-react';
+import { Download, FileSpreadsheet, FileText, FileType, Sigma } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -8,7 +8,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { SidebarTrigger } from '@/components/ui/sidebar';
 import Link from 'next/link';
 
 interface AppHeaderProps {
@@ -53,8 +52,13 @@ export default function AppHeader({ formula, result }: AppHeaderProps) {
 
   return (
     <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
-      <SidebarTrigger className="md:hidden" />
-      <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+      <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
+            <Sigma className="size-8 text-primary" />
+            <h2 className="text-xl font-bold font-headline hidden sm:block">Formula First</h2>
+        </Link>
+      </div>
+      <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 ml-6">
         <Link
           href="/about"
           className="text-muted-foreground transition-colors hover:text-foreground"
