@@ -60,6 +60,18 @@ export default function AppHeader({ formula, result }: AppHeaderProps) {
       </div>
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 ml-6">
         <Link
+          href="/tools"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Tools
+        </Link>
+        <Link
+          href="/blog"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Guides
+        </Link>
+        <Link
           href="/about"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
