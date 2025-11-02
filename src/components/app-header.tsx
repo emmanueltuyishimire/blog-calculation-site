@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Sigma } from 'lucide-react';
@@ -10,9 +11,6 @@ export default function AppHeader() {
     { href: '/blog', label: 'Guides' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
-    { href: '/terms-and-conditions', label: 'Terms' },
-    { href: '/privacy-policy', label: 'Privacy' },
-    { href: '/disclaimer', label: 'Disclaimer' },
   ];
 
   return (

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { hubs } from '@/lib/hubs';
-import { ArrowRight, ShieldCheck, Zap, Smartphone, Lock, Rocket, Newspaper, Mail, Scale, Landmark } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, Smartphone, Lock, Rocket, Newspaper, Mail, Scale, Landmark, GraduationCap, Cpu, Heart } from 'lucide-react';
 
 export default function Home() {
   const whyChooseUs = [
