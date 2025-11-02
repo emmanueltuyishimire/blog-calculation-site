@@ -2,71 +2,9 @@
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Calculator, ArrowRight, Heart, Cpu, Landmark, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { hubs } from '@/lib/hubs';
 
-const hubs = [
-    {
-        title: 'Mathematics Calculators',
-        description: 'A collection of calculators for various mathematical functions and formulas.',
-        href: 'https://maths.calculation.site',
-        icon: <Calculator className="size-10 text-primary" />,
-    },
-    {
-        title: 'Health & Fitness Calculators',
-        description: 'A collection of calculators for tracking your health and fitness goals.',
-        href: 'https://health.calculation.site',
-        icon: <Heart className="size-10 text-primary" />,
-    },
-    {
-        title: 'ICT Tools Hub',
-        description: 'A collection of tools for developers, IT experts, and tech enthusiasts.',
-        href: 'https://ict.health.calculation.site',
-        icon: <Cpu className="size-10 text-primary" />,
-    },
-    {
-        title: 'Finance Calculators Hub',
-        description: 'A collection of tools for budgeting, investing, and financial planning.',
-        href: 'https://finance.health.calculation.site',
-        icon: <Landmark className="size-10 text-primary" />,
-    },
-    {
-        title: 'Unit Converter Hub',
-        description: 'A collection of tools for converting units of measurement.',
-        href: 'https://unit.health.calculation.site',
-        icon: <Scale className="size-10 text-primary" />,
-    },
-    {
-        title: 'Side Hustlers Calculators',
-        description: 'Calculators and tools to help you manage your side hustles and freelance work.',
-        href: 'https://hustle.health.calculation.site',
-        icon: <Briefcase className="size-10 text-primary" />,
-    },
-    {
-        title: 'Age Calculators Hub',
-        description: 'A collection of calculators for determining age and related time calculations.',
-        href: 'https://age.health.calculation.site',
-        icon: <Calendar className="size-10 text-primary" />,
-    },
-    {
-        title: 'Physics Calculators Hub',
-        description: 'A collection of calculators for various physics formulas and equations.',
-        href: 'https://physics.health.calculation.site',
-        icon: <FlaskConical className="size-10 text-primary" />,
-    },
-    {
-        title: 'Biology Calculators Hub',
-        description: 'A collection of calculators for various biology formulas and equations.',
-        href: 'https://biology.health.calculation.site',
-        icon: <Dna className="size-10 text-primary" />,
-    },
-    {
-        title: 'Chemistry Calculators Hub',
-        description: 'A collection of calculators for various chemistry formulas and equations.',
-        href: 'https://chemistry.health.calculation.site',
-        icon: <Beaker className="size-10 text-primary" />,
-    }
-]
 
 export default function ToolsPage() {
   return (
@@ -78,27 +16,30 @@ export default function ToolsPage() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {hubs.map((hub) => (
-                <Card key={hub.title} className="flex flex-col">
-                    <CardHeader className="flex-row items-center gap-4">
-                        {hub.icon}
-                        <div>
-                            <CardTitle>{hub.title}</CardTitle>
-                        </div>
-                    </CardHeader>
-                    <CardContent className="flex-1">
-                        <CardDescription>{hub.description}</CardDescription>
-                    </CardContent>
-                    <CardFooter>
-                        <Button asChild className="w-full">
-                            <a href={hub.href} target="_blank" rel="noopener noreferrer">
-                                Open Hub
-                                <ArrowRight className="ml-2 size-4" />
-                            </a>
-                        </Button>
-                    </CardFooter>
-                </Card>
-            ))}
+            {hubs.map((hub) => {
+                const Icon = hub.icon;
+                return (
+                    <Card key={hub.title} className="flex flex-col">
+                        <CardHeader className="flex-row items-center gap-4">
+                            <Icon className="size-10 text-primary" />
+                            <div>
+                                <CardTitle>{hub.title}</CardTitle>
+                            </div>
+                        </CardHeader>
+                        <CardContent className="flex-1">
+                            <CardDescription>{hub.description}</CardDescription>
+                        </CardContent>
+                        <CardFooter>
+                            <Button asChild className="w-full">
+                                <a href={hub.href} target="_blank" rel="noopener noreferrer">
+                                    Open Hub
+                                    <ArrowRight className="ml-2 size-4" />
+                                </a>
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                );
+            })}
         </div>
       </div>
     </AppLayout>
