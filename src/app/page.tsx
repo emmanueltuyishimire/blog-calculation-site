@@ -17,7 +17,7 @@ export default function Home() {
     { text: 'Constantly Growing – New tools and categories are added every week.', icon: Rocket },
   ];
   
-  const mainHubs = hubs.slice(0, 5);
+  const mainHubs = hubs.slice(0, 6);
 
   return (
     <AppLayout>
@@ -56,10 +56,10 @@ export default function Home() {
                                 </CardContent>
                                 <CardFooter className="p-6 pt-0">
                                     <Button asChild className="w-full">
-                                        <a href={hub.href} target="_blank" rel="noopener noreferrer">
+                                        <Link href={hub.href}>
                                             Open Hub
                                             <ArrowRight className="ml-2 size-4" />
-                                        </a>
+                                        </Link>
                                     </Button>
                                 </CardFooter>
                             </Card>
@@ -141,15 +141,15 @@ export default function Home() {
                     <div>
                         <h3 className="font-bold text-lg font-headline mb-2">Quick Links</h3>
                         <ul className="space-y-1">
-                            <li><Link href="https://calculation.site/about" className="text-muted-foreground hover:text-primary hover:underline">About Us</Link></li>
-                            <li><Link href="https://calculation.site/contact" className="text-muted-foreground hover:text-primary hover:underline">Contact</Link></li>
-                            <li><Link href="https://calculation.site/privacy-policy" className="text-muted-foreground hover:text-primary hover:underline">Privacy Policy</Link></li>
-                            <li><Link href="https://calculation.site/terms-and-conditions" className="text-muted-foreground hover:text-primary hover:underline">Terms of Service</Link></li>
+                            <li><Link href="/about">About Us</Link></li>
+                            <li><Link href="/contact">Contact</Link></li>
+                            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                            <li><Link href="/terms-and-conditions">Terms of Service</Link></li>
                         </ul>
                     </div>
                 </div>
                  <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} <Link href="https://calculation.site" className="text-primary hover:underline">Calculation.site</Link>. All Rights Reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} <Link href="/" className="text-primary hover:underline">Calculation.site</Link>. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>

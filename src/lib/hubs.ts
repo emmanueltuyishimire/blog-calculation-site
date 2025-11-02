@@ -1,4 +1,4 @@
-import { Heart, Landmark, GraduationCap, Cpu, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker, type LucideIcon } from 'lucide-react';
+import { Heart, Landmark, GraduationCap, Cpu, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker, type LucideIcon, Zap } from 'lucide-react';
 
 type Hub = {
     title: string;
@@ -37,6 +37,12 @@ export const hubs: Hub[] = [
         description: 'Get fast answers to daily questions — convert units, calculate time differences, measure areas, or check your GPA.',
         href: '/coming-soon',
         icon: Scale,
+    },
+    {
+        title: 'Performance',
+        description: 'Tools to analyze and improve your website\'s speed and performance.',
+        href: '/performance',
+        icon: Zap,
     },
     {
         title: 'Side Hustlers Calculators',
