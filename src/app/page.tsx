@@ -8,7 +8,6 @@ import type { CalculationHistoryItem } from '@/lib/types';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-
 export default function Home() {
     const [formula, setFormula] = useState('y = x^2');
     const [result, setResult] = useState<string | number | null>(null);
