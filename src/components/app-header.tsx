@@ -56,12 +56,6 @@ export default function AppHeader() {
         >
           Disclaimer
         </Link>
-        <Link
-          href="/sitemap"
-          className="text-muted-foreground transition-colors hover:text-foreground"
-        >
-          Sitemap
-        </Link>
       </nav>
       <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
       </div>
