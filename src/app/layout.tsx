@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   creator: 'Calculation.site',
   publisher: 'Calculation.site',
   robots: 'index, follow',
-  manifest: `${basePath}/manifest.json`,
+  manifest: `/manifest.json`,
   openGraph: {
     type: 'website',
     url: siteUrl,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: 'Calculation.site',
     images: [
       {
-        url: `${basePath}/og-image.png`,
+        url: `/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'Calculation.site Logo and Title',
@@ -46,12 +46,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Calculation.site – Smart Online Calculators & Everyday Tools',
     description: 'An intelligent app for free online calculators, converters, and digital tools.',
-    images: [`${basePath}/og-image.png`],
+    images: [`/og-image.png`],
   },
   icons: {
-    apple: `${basePath}/logo.png`,
-    icon: `${basePath}/favicon.ico`,
-    shortcut: `${basePath}/favicon.ico`,
+    apple: `/logo.png`,
+    icon: `/favicon.ico`,
+    shortcut: `/favicon.ico`,
   },
 };
 
