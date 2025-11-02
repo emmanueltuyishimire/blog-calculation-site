@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import nextConfig from '../../../next.config';
+import nextConfig from '../../next.config';
 
 const basePath = nextConfig.basePath || '';
 
