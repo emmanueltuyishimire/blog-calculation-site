@@ -1,6 +1,13 @@
 import type {NextConfig} from 'next';
 
+const repo = 'blog-calculation-site';
+const assetPrefix = `/${repo}/`;
+const basePath = `/${repo}`;
+
 const nextConfig: NextConfig = {
+  output: 'export',
+  assetPrefix: assetPrefix,
+  basePath: basePath,
   typescript: {
     ignoreBuildErrors: true,
   },
