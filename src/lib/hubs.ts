@@ -1,12 +1,11 @@
 
-import { Calculator, Heart, Cpu, Landmark, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker, type LucideProps, GraduationCap } from 'lucide-react';
-import type { ForwardRefExoticComponent, RefAttributes } from 'react';
+import { Heart, Landmark, GraduationCap, Cpu, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker, type LucideIcon } from 'lucide-react';
 
 type Hub = {
     title: string;
     description: string;
     href: string;
-    icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
+    icon: LucideIcon;
 };
 
 export const hubs: Hub[] = [
