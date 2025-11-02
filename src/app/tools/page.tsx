@@ -16,7 +16,7 @@ export default function ToolsPage() {
               This is where the tools directory (hub list) will be.
             </p>
             <Button asChild>
-                <Link href="/">Go to Calculator</Link>
+                <Link href="/">Go to Formula Editor</Link>
             </Button>
           </CardContent>
         </Card>
