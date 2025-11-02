@@ -4,7 +4,7 @@
 import AppLayout from '@/components/app-layout';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { hubs } from '@/lib/hubs';
 import { ArrowRight, ShieldCheck, Zap, Smartphone, Lock, Rocket, Mail, Scale, Landmark, GraduationCap, Cpu, Heart } from 'lucide-react';
 
@@ -54,14 +54,14 @@ export default function Home() {
                                 <CardContent className="flex-1">
                                     <p className="text-muted-foreground">{hub.description}</p>
                                 </CardContent>
-                                <div className="p-6 pt-0">
+                                <CardFooter className="p-6 pt-0">
                                     <Button asChild className="w-full">
                                         <a href={hub.href} target="_blank" rel="noopener noreferrer">
                                             Open Hub
                                             <ArrowRight className="ml-2 size-4" />
                                         </a>
                                     </Button>
-                                </div>
+                                </CardFooter>
                             </Card>
                         );
                     })}
@@ -141,15 +141,15 @@ export default function Home() {
                     <div>
                         <h3 className="font-bold text-lg font-headline mb-2">Quick Links</h3>
                         <ul className="space-y-1">
-                            <li><Link href="/about" className="text-muted-foreground hover:text-primary hover:underline">About Us</Link></li>
-                            <li><Link href="/contact" className="text-muted-foreground hover:text-primary hover:underline">Contact</Link></li>
-                            <li><Link href="/privacy-policy" className="text-muted-foreground hover:text-primary hover:underline">Privacy Policy</Link></li>
-                            <li><Link href="/terms-and-conditions" className="text-muted-foreground hover:text-primary hover:underline">Terms of Service</Link></li>
+                            <li><Link href="https://calculation.site/about" className="text-muted-foreground hover:text-primary hover:underline">About Us</Link></li>
+                            <li><Link href="https://calculation.site/contact" className="text-muted-foreground hover:text-primary hover:underline">Contact</Link></li>
+                            <li><Link href="https://calculation.site/privacy-policy" className="text-muted-foreground hover:text-primary hover:underline">Privacy Policy</Link></li>
+                            <li><Link href="https://calculation.site/terms-and-conditions" className="text-muted-foreground hover:text-primary hover:underline">Terms of Service</Link></li>
                         </ul>
                     </div>
                 </div>
                  <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} <Link href="/" className="text-primary hover:underline">Calculation.site</Link>. All Rights Reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} <Link href="https://calculation.site" className="text-primary hover:underline">Calculation.site</Link>. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
