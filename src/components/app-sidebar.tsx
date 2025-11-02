@@ -51,72 +51,22 @@ export default function AppSidebar({ setFormula, history, setHistory }: AppSideb
           </TabsList>
           <TabsContent value="library" className="mt-0 flex-1 overflow-hidden">
             <ScrollArea className="h-full p-2">
-              <Accordion type="multiple" className="w-full" defaultValue={[formulaLibrary[0].name]}>
-                {formulaLibrary.map((category) => (
-                  <AccordionItem value={category.name} key={category.name}>
-                    <AccordionTrigger className="px-2 hover:no-underline">
-                      <div className="flex items-center gap-3">
-                        <category.icon className="size-5 text-muted-foreground" />
-                        <span className="font-semibold">{category.name}</span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="pl-4">
-                      <ul className="space-y-1">
-                        {category.formulas.map((formula) => (
-                          <li key={formula.name}>
-                            <button
-                              onClick={() => handleSelectFormula(formula.expression)}
-                              className="w-full rounded-md p-2 text-left hover:bg-sidebar-accent"
-                            >
-                              <p className="font-medium">{formula.name}</p>
-                              <p className="text-xs text-sidebar-foreground/70">{formula.description}</p>
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <div className="p-4 text-center text-sm text-sidebar-foreground/70">
+                No formulas in library.
+              </div>
             </ScrollArea>
           </TabsContent>
           <TabsContent value="history" className="mt-0 flex-1 overflow-hidden">
              <ScrollArea className="h-full p-2">
-              {history.length > 0 ? (
-                <ul className="space-y-1">
-                  {history.map((item) => (
-                    <li key={item.id}>
-                      <button
-                        onClick={() => handleSelectHistory(item)}
-                        className="w-full rounded-md p-2 text-left hover:bg-sidebar-accent"
-                      >
-                        <p className="font-mono text-sm truncate">{item.formula}</p>
-                        <p className="text-xs text-sidebar-foreground/70">
-                          {formatDistanceToNow(new Date(item.timestamp), { addSuffix: true })}
-                        </p>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div className="p-4 text-center text-sm text-sidebar-foreground/70">
-                  No calculations yet.
-                </div>
-              )}
+              <div className="p-4 text-center text-sm text-sidebar-foreground/70">
+                No calculations yet.
+              </div>
             </ScrollArea>
           </TabsContent>
         </Tabs>
       </SidebarBody>
       <SidebarFooter>
-        {history.length > 0 && (
-          <Tabs defaultValue="library" className="w-full">
-            <TabsContent value="history">
-              <Button variant="ghost" onClick={handleClearHistory} className="w-full">
-                Clear History
-              </Button>
-            </TabsContent>
-          </Tabs>
-        )}
+        
       </SidebarFooter>
     </>
   );
