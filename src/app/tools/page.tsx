@@ -3,7 +3,7 @@ import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Calculator, ArrowRight, Heart, Cpu, Landmark } from 'lucide-react';
+import { Calculator, ArrowRight, Heart, Cpu, Landmark, Scale } from 'lucide-react';
 
 const hubs = [
     {
@@ -29,6 +29,12 @@ const hubs = [
         description: 'A collection of tools for budgeting, investing, and financial planning.',
         href: 'https://finance.health.calculation.site',
         icon: <Landmark className="size-10 text-primary" />,
+    },
+    {
+        title: 'Unit Converter Hub',
+        description: 'A collection of tools for converting units of measurement.',
+        href: 'https://unit.health.calculation.site',
+        icon: <Scale className="size-10 text-primary" />,
     }
 ]
 
