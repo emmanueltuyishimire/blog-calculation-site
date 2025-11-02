@@ -1,4 +1,5 @@
-import { Calculator, Heart, Cpu, Landmark, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker, type LucideProps } from 'lucide-react';
+
+import { Calculator, Heart, Cpu, Landmark, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker, type LucideProps, GraduationCap } from 'lucide-react';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 type Hub = {
@@ -10,32 +11,32 @@ type Hub = {
 
 export const hubs: Hub[] = [
     {
-        title: 'Mathematics Calculators',
-        description: 'A collection of calculators for various mathematical functions and formulas.',
-        href: 'https://maths.calculation.site',
-        icon: Calculator,
-    },
-    {
-        title: 'Health & Fitness Calculators',
-        description: 'A collection of calculators for tracking your health and fitness goals.',
-        href: 'https://health.calculation.site',
-        icon: Heart,
-    },
-    {
-        title: 'ICT Tools Hub',
-        description: 'A collection of tools for developers, IT experts, and tech enthusiasts.',
-        href: 'https://ict.health.calculation.site',
-        icon: Cpu,
-    },
-    {
-        title: 'Finance Calculators Hub',
-        description: 'A collection of tools for budgeting, investing, and financial planning.',
+        title: 'Finance & Investment',
+        description: 'Manage money smarter with easy-to-use calculators for loans, savings, mortgages, taxes, and investments.',
         href: 'https://finance.health.calculation.site',
         icon: Landmark,
     },
     {
-        title: 'Unit Converter Hub',
-        description: 'A collection of tools for converting units of measurement.',
+        title: 'Health & Fitness',
+        description: 'Track your body metrics and fitness goals effortlessly, from BMI and calorie intake to BMR and macro ratios.',
+        href: 'https://health.calculation.site',
+        icon: Heart,
+    },
+    {
+        title: 'Education & Science',
+        description: 'Simplify complex equations for students, teachers, and curious minds. Covers physics, biology, and chemistry.',
+        href: 'https://maths.calculation.site',
+        icon: GraduationCap,
+    },
+    {
+        title: 'ICT & Tech Utilities',
+        description: 'Handy tools for developers and network engineers, including bandwidth calculators and subnet finders.',
+        href: 'https://ict.health.calculation.site',
+        icon: Cpu,
+    },
+    {
+        title: 'Everyday Utilities',
+        description: 'Get fast answers to daily questions — convert units, calculate time differences, measure areas, or check your GPA.',
         href: 'https://unit.health.calculation.site',
         icon: Scale,
     },
