@@ -32,7 +32,7 @@ export default function Home() {
             Smarter Calculations for Everyday Life
           </h1>
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Explore hundreds of free, accurate, and easy-to-use online calculators — from finance and health to science, tech, and daily life tools.
+            Explore hundreds of free, accurate, and easy-to-use online tools — from finance and health to science, tech, and daily life.
           </p>
           <div className="flex justify-center gap-4">
             <Button asChild size="lg">
