@@ -10,8 +10,8 @@ type Hub = {
 
 export const hubs: Hub[] = [
     {
-        title: 'Education & Science',
-        description: 'Simplify complex equations for students, teachers, and curious minds. Covers physics, biology, and chemistry.',
+        title: 'Math Calculators Hub',
+        description: 'A comprehensive collection of free online math calculators for algebra, geometry, statistics, and more.',
         href: '/maths',
         icon: GraduationCap,
     },
