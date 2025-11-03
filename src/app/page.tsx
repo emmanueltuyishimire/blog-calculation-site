@@ -145,6 +145,7 @@ export default function Home() {
                             <li><Link href="/contact">Contact</Link></li>
                             <li><Link href="/privacy-policy">Privacy Policy</Link></li>
                             <li><Link href="/terms-and-conditions">Terms of Service</Link></li>
+                            <li><Link href="/disclaimer">Disclaimer</Link></li>
                         </ul>
                     </div>
                 </div>
