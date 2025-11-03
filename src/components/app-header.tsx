@@ -1,8 +1,6 @@
-
 'use client';
 
 import Link from 'next/link';
-import { Calculator } from 'lucide-react';
 import Image from 'next/image';
 
 export default function AppHeader() {
@@ -17,7 +15,8 @@ export default function AppHeader() {
     <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2" aria-label="Homepage">
-          <Image src="/logo.png" alt="Calculation.site Logo" width={32} height={32} className="size-8" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Calculation.site Logo" width={32} height={32} className="size-8" />
           <h2 className="text-xl font-bold font-headline hidden sm:block">Calculation Site</h2>
         </Link>
       </div>
