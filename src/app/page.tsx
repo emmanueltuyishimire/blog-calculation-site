@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { hubs } from '@/lib/hubs';
-import { ArrowRight, ShieldCheck, Zap, Smartphone, Lock, Rocket, Mail, Scale, Landmark, GraduationCap, Cpu, Heart } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, Smartphone, Lock, Rocket, Mail } from 'lucide-react';
 
 export default function Home() {
   const whyChooseUs = [
@@ -25,7 +25,7 @@ export default function Home() {
         <section className="bg-background py-16 md:py-24 text-center">
           <div className="container mx-auto px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 font-headline">
-              Calculation Site – Smart Online Calculators & Everyday Tools
+              Smart Online Calculators & Everyday Tools
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
               Empowering Your Daily Decisions With Precision and Simplicity
@@ -141,11 +141,11 @@ export default function Home() {
                     <div>
                         <h3 className="font-bold text-lg font-headline mb-2">Quick Links</h3>
                         <ul className="space-y-1">
-                            <li><Link href="/about">About Us</Link></li>
-                            <li><Link href="/contact">Contact</Link></li>
-                            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-                            <li><Link href="/terms-and-conditions">Terms of Service</Link></li>
-                            <li><Link href="/disclaimer">Disclaimer</Link></li>
+                            <li><Link href="/about" className="text-muted-foreground hover:text-primary">About Us</Link></li>
+                            <li><Link href="/contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
+                            <li><Link href="/privacy-policy" className="text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
+                            <li><Link href="/terms-and-conditions" className="text-muted-foreground hover:text-primary">Terms of Service</Link></li>
+                            <li><Link href="/disclaimer" className="text-muted-foreground hover:text-primary">Disclaimer</Link></li>
                         </ul>
                     </div>
                 </div>
