@@ -30,7 +30,7 @@ export const hubs: Hub[] = [
     {
         title: 'ICT & Tech Utilities',
         description: 'Handy tools for developers and network engineers, including bandwidth calculators and subnet finders.',
-        href: '/coming-soon',
+        href: '/ict',
         icon: Cpu,
     },
     {
