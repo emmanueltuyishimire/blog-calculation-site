@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   creator: 'Calculation.site',
   publisher: 'Calculation.site',
   robots: 'index, follow',
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     type: 'website',
     url: siteUrl,
