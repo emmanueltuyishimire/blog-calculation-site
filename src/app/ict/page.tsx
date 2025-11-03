@@ -3,6 +3,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ictToolCategories } from '@/lib/ict-tools';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'ICT & Tech Utilities Hub',
+    description: 'A collection of handy online tools for developers, network engineers, and tech enthusiasts. Includes networking, server, coding, and security utilities.',
+    keywords: ['ict tools', 'tech utilities', 'developer tools', 'networking calculator', 'subnet calculator', 'code generator'],
+    alternates: {
+      canonical: '/ict',
+    },
+};
 
 export default function IctPage() {
   return (

@@ -1,7 +1,16 @@
-
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Privacy Policy',
+    description: 'Our Privacy Policy explains how we collect, use, and protect your information when you use our website and tools. We are committed to your privacy.',
+    keywords: ['privacy policy', 'data protection', 'cookies', 'user rights', 'information collection'],
+    alternates: {
+      canonical: '/privacy-policy',
+    },
+};
 
 export default function PrivacyPolicyPage() {
   return (

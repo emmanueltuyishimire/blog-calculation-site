@@ -1,10 +1,19 @@
-
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, GraduationCap } from 'lucide-react';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Maths Calculators Hub',
+    description: 'Your free resource for all things math. Explore calculators for basic arithmetic, algebra, geometry, trigonometry, statistics, and advanced calculus.',
+    keywords: ['maths calculators', 'algebra calculator', 'geometry calculator', 'statistics tools', 'trigonometry solver', 'free math help'],
+    alternates: {
+      canonical: '/maths',
+    },
+};
 
 export default function MathsPage() {
   return (

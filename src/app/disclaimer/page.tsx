@@ -1,6 +1,15 @@
-
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Disclaimer',
+    description: 'Read the disclaimer for Calculation Site. Our tools are for informational and educational purposes only and should not be considered professional advice.',
+    keywords: ['disclaimer', 'informational purposes', 'not professional advice', 'accuracy', 'liability'],
+    alternates: {
+      canonical: '/disclaimer',
+    },
+};
 
 export default function DisclaimerPage() {
   return (

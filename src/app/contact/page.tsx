@@ -2,6 +2,16 @@ import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
 import { Mail, Bug, Lightbulb, Briefcase, AlertTriangle } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Contact Us',
+    description: 'Get in touch with the Calculation Site team. We welcome your feedback, bug reports, suggestions for new calculators, or business inquiries.',
+    keywords: ['contact', 'feedback', 'support', 'bug report', 'suggestions', 'business inquiry'],
+    alternates: {
+      canonical: '/contact',
+    },
+};
 
 export default function ContactPage() {
   return (

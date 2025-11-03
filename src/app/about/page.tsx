@@ -2,6 +2,16 @@ import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Landmark, Heart, FlaskConical, Cpu, Home } from 'lucide-react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Calculation Site',
+  description: 'Learn about our mission to provide simple, accurate, and reliable online tools for everyday problem-solving in finance, health, science, and more.',
+  keywords: ['about us', 'mission', 'online calculators', 'free tools', 'Calculation Site'],
+  alternates: {
+    canonical: '/about',
+  },
+};
 
 export default function AboutPage() {
   return (

@@ -1,7 +1,16 @@
-
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Terms of Service',
+    description: 'Read the Terms of Service for using Calculation Site. By using our website and tools, you agree to comply with our terms and conditions.',
+    keywords: ['terms of service', 'terms and conditions', 'user agreement', 'website policy', 'intellectual property'],
+    alternates: {
+      canonical: '/terms-and-conditions',
+    },
+};
 
 export default function TermsAndConditionsPage() {
   return (

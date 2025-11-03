@@ -1,10 +1,18 @@
-
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { hubs } from '@/lib/hubs';
+import type { Metadata } from 'next';
 
+export const metadata: Metadata = {
+    title: 'Tools & Calculators Directory',
+    description: 'Explore our full directory of specialized hubs for all your calculation needs, including math, finance, health, ICT, and everyday utilities.',
+    keywords: ['tools directory', 'calculator hubs', 'all calculators', 'finance hub', 'maths hub', 'health hub'],
+    alternates: {
+      canonical: '/tools',
+    },
+};
 
 export default function ToolsPage() {
   return (
