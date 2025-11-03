@@ -27,7 +27,7 @@ export default function MathsPage() {
                 <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {category.calculators.map((calculator) => (
                         <Button key={calculator.name} asChild variant="outline">
-                            <a href={calculator.href} target="_blank" rel="noopener noreferrer">
+                            <a href={calculator.href}>
                                 {calculator.name}
                             </a>
                         </Button>

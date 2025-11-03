@@ -136,7 +136,7 @@ export const ictToolCategories: IctCategory[] = [
             { name: "Transaction / TPS Calculator", href: "/coming-soon" },
             { name: "Log Rotation Calculator", href: "/coming-soon" },
             { name: "Database Index Size Calculator", href: "/coming-soon" },
-            { name: "Query Execution Time Estimator", href:="/coming-soon" },
+            { name: "Query Execution Time Estimator", href: "/coming-soon" },
             { name: "Database Growth Calculator", href: "/coming-soon" },
             { name: "Primary / Foreign Key Validator", href: "/coming-soon" },
             { name: "Normalization Checker", href: "/coming-soon" },
@@ -152,7 +152,7 @@ export const ictToolCategories: IctCategory[] = [
         tools: [
             { name: "AI Code Generator & Debugger", href: "/coming-soon" },
             { name: "Time Complexity Estimator", href: "/coming-soon" },
-            { name: "Algorithm Step Simulator", href: "/coming-soon" },
+            { name: "Algorithm Step Simulator", href: "/comingsoon" },
             { name: "Recursion Calculator / Simulator", href: "/coming-soon" },
         ]
     }
