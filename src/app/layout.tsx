@@ -15,38 +15,38 @@ const siteUrl = 'https://calculation.site';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Calculation.site – Smart Online Calculators & Everyday Tools',
-    template: '%s | Calculation.site',
+    default: 'Calculation Site – Smart Online Calculators & Everyday Tools',
+    template: '%s | Calculation Site',
   },
   description: 'An intelligent app for free online calculators, converters, and digital tools designed to simplify everyday life for finance, health, and science.',
   keywords: ['calculator', 'free calculator', 'online calculator', 'finance calculator', 'health calculator', 'science calculator', 'unit converter'],
-  authors: [{ name: 'Calculation.site Team' }],
-  creator: 'Calculation.site',
-  publisher: 'Calculation.site',
+  authors: [{ name: 'Calculation Site Team' }],
+  creator: 'Calculation Site',
+  publisher: 'Calculation Site',
   robots: 'index, follow',
   icons: {
-    icon: '/favicon.ico',
+    icon: './favicon.ico',
   },
   openGraph: {
     type: 'website',
     url: siteUrl,
-    title: 'Calculation.site – Smart Online Calculators & Everyday Tools',
+    title: 'Calculation Site – Smart Online Calculators & Everyday Tools',
     description: 'An intelligent app for free online calculators, converters, and digital tools.',
-    siteName: 'Calculation.site',
+    siteName: 'Calculation Site',
     images: [
       {
-        url: '/og-image.png',
+        url: './og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Calculation.site Logo and Title',
+        alt: 'Calculation Site Logo and Title',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Calculation.site – Smart Online Calculators & Everyday Tools',
+    title: 'Calculation Site – Smart Online Calculators & Everyday Tools',
     description: 'An intelligent app for free online calculators, converters, and digital tools.',
-    images: ['/og-image.png'],
+    images: ['./og-image.png'],
   },
 };
 

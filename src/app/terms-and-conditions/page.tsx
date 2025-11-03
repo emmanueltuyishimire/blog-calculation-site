@@ -14,13 +14,13 @@ export default function TermsAndConditionsPage() {
           </CardHeader>
           <CardContent className="space-y-6 text-lg text-muted-foreground max-w-4xl mx-auto">
             <p>
-              Welcome to Calculation.site. By accessing or using this website, you agree to comply with and be bound by the following Terms of Service. If you do not agree to these terms, please do not use our website or services.
+              Welcome to Calculation Site. By accessing or using this website, you agree to comply with and be bound by the following Terms of Service. If you do not agree to these terms, please do not use our website or services.
             </p>
 
             <div className="space-y-2">
               <h2 className="text-2xl font-semibold text-foreground">1. Acceptance of Terms</h2>
               <p>
-                By using Calculation.site, you confirm that you are at least 13 years old and that you have read, understood, and agree to these Terms of Service. We may update these terms periodically, and your continued use of the site after changes are posted constitutes your acceptance of the revised terms.
+                By using Calculation Site, you confirm that you are at least 13 years old and that you have read, understood, and agree to these Terms of Service. We may update these terms periodically, and your continued use of the site after changes are posted constitutes your acceptance of the revised terms.
               </p>
             </div>
 
@@ -37,14 +37,14 @@ export default function TermsAndConditionsPage() {
             <div className="space-y-2">
               <h2 className="text-2xl font-semibold text-foreground">3. Accuracy of Information</h2>
               <p>
-                All information and tools on this website are provided for general informational purposes only. While we make every effort to ensure accuracy, Calculation.site does not guarantee that all content or results are free from errors or omissions. You are responsible for verifying all outputs before relying on them for personal, financial, or professional decisions.
+                All information and tools on this website are provided for general informational purposes only. While we make every effort to ensure accuracy, Calculation Site does not guarantee that all content or results are free from errors or omissions. You are responsible for verifying all outputs before relying on them for personal, financial, or professional decisions.
               </p>
             </div>
 
             <div className="space-y-2">
               <h2 className="text-2xl font-semibold text-foreground">4. Intellectual Property Rights</h2>
               <p>
-                All text, design, graphics, logos, tools, and source code on this website are the intellectual property of Calculation.site unless otherwise stated. Unauthorized reproduction or redistribution of our materials is strictly prohibited.
+                All text, design, graphics, logos, tools, and source code on this website are the intellectual property of Calculation Site unless otherwise stated. Unauthorized reproduction or redistribution of our materials is strictly prohibited.
               </p>
             </div>
 
@@ -57,7 +57,7 @@ export default function TermsAndConditionsPage() {
 
             <div className="space-y-2">
               <h2 className="text-2xl font-semibold text-foreground">6. Limitation of Liability</h2>
-              <p>Calculation.site, its developers, and affiliates shall not be liable for any direct, indirect, incidental, or consequential damages resulting from:</p>
+              <p>Calculation Site, its developers, and affiliates shall not be liable for any direct, indirect, incidental, or consequential damages resulting from:</p>
               <ul className="list-disc pl-8 space-y-1">
                 <li>Use or inability to use our website or tools.</li>
                 <li>Errors, omissions, or inaccuracies in calculator results or content.</li>

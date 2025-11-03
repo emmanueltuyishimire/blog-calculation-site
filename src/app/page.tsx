@@ -25,13 +25,13 @@ export default function Home() {
         <section className="bg-background py-16 md:py-24 text-center">
           <div className="container mx-auto px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 font-headline">
-              Calculation.site – Smart Online Calculators & Everyday Tools
+              Calculation Site – Smart Online Calculators & Everyday Tools
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
               Empowering Your Daily Decisions With Precision and Simplicity
             </p>
             <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-                Welcome to Calculation.site, your all-in-one hub for free online calculators, converters, and digital tools designed to simplify everyday life. Whether you’re managing your finances, tracking your health and fitness, or solving complex math and science problems, our intelligent calculators help you make smarter decisions — instantly.
+                Welcome to Calculation Site, your all-in-one hub for free online calculators, converters, and digital tools designed to simplify everyday life. Whether you’re managing your finances, tracking your health and fitness, or solving complex math and science problems, our intelligent calculators help you make smarter decisions — instantly.
             </p>
           </div>
         </section>
@@ -39,7 +39,7 @@ export default function Home() {
         <section id="hubs" aria-labelledby="hubs-heading" className="py-16 md:py-24 bg-muted/30">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
-                    <h2 id="hubs-heading" className="text-3xl font-bold tracking-tight font-headline">What You’ll Find on Calculation.site</h2>
+                    <h2 id="hubs-heading" className="text-3xl font-bold tracking-tight font-headline">What You’ll Find on Calculation Site</h2>
                     <p className="mt-2 text-muted-foreground">We’ve built a collection of specialized calculator hubs tailored to real-world needs:</p>
                 </div>
                 <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -79,7 +79,7 @@ export default function Home() {
         <section aria-labelledby="why-choose-us-heading" className="py-16 md:py-24">
             <div className="container mx-auto px-6">
                  <div className="text-center mb-12">
-                    <h2 id="why-choose-us-heading" className="text-3xl font-bold tracking-tight font-headline">Why Choose Calculation.site</h2>
+                    <h2 id="why-choose-us-heading" className="text-3xl font-bold tracking-tight font-headline">Why Choose Calculation Site</h2>
                 </div>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
                    {whyChooseUs.map((item) => {
@@ -149,7 +149,7 @@ export default function Home() {
                     </div>
                 </div>
                  <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} <Link href="/" className="text-primary hover:underline">Calculation.site</Link>. All Rights Reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} <Link href="/" className="text-primary hover:underline">Calculation Site</Link>. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>

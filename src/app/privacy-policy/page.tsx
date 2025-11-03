@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
           </CardHeader>
           <CardContent className="space-y-6 text-lg text-muted-foreground max-w-4xl mx-auto">
             <p>
-              Welcome to Calculation.site. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website and tools.
+              Welcome to Calculation Site. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website and tools.
             </p>
 
             <div className="space-y-2">

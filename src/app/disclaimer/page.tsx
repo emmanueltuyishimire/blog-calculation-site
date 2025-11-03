@@ -55,7 +55,7 @@ export default function DisclaimerPage() {
               <p>By using this website, you agree that:</p>
               <ul className="list-disc pl-8 space-y-1">
                 <li>You are responsible for verifying all information and results before making decisions.</li>
-                <li>You will not hold Calculation.site, its creators, or contributors liable for any outcomes related to your use of this website or its tools.</li>
+                <li>You will not hold Calculation Site, its creators, or contributors liable for any outcomes related to your use of this website or its tools.</li>
               </ul>
             </div>
 
