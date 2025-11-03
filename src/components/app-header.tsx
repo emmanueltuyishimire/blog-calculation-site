@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function AppHeader() {
   const navLinks = [
-    {href: '/tools', label: 'Tools'},
+    {href: '/tools', label: 'Calculators and Tools'},
     {href: '/blog', label: 'Guides'},
     {href: '/about', label: 'About'},
     {href: '/contact', label: 'Contact'},
