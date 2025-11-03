@@ -1,3 +1,4 @@
+
 import { Heart, Landmark, GraduationCap, Cpu, Scale, Briefcase, Calendar, FlaskConical, Dna, Beaker, type LucideIcon, Zap } from 'lucide-react';
 
 type Hub = {
@@ -11,7 +12,7 @@ export const hubs: Hub[] = [
     {
         title: 'Education & Science',
         description: 'Simplify complex equations for students, teachers, and curious minds. Covers physics, biology, and chemistry.',
-        href: 'https://maths.calculation.site',
+        href: '/maths',
         icon: GraduationCap,
     },
     {
