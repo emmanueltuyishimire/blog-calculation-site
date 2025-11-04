@@ -7,12 +7,18 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import { physicsCalculatorCategories } from '@/lib/physics-calculators';
-import { GraduationCap, FlaskConical, Search } from 'lucide-react';
-import { useState, useMemo } from 'react';
-import { Input } from '@/components/ui/input';
+import { GraduationCap, FlaskConical } from 'lucide-react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function CalculatorsPage() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
+
+  useEffect(() => {
+    setSearchQuery(initialQuery);
+  }, [initialQuery]);
 
   const filteredMathsCategories = useMemo(() => {
     if (!searchQuery) return mathsCalculatorCategories;
@@ -41,26 +47,15 @@ export default function CalculatorsPage() {
       <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
         <div className="text-center">
             <h1 className="text-3xl font-bold tracking-tight font-headline">All Calculators</h1>
-            <p className="mt-2 text-muted-foreground">Explore our full suite of calculators, organized by category.</p>
-        </div>
-
-        <div className="max-w-xl mx-auto">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search for a calculator..."
-              className="w-full pl-10"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+            <p className="mt-2 text-muted-foreground">
+                {searchQuery ? `Showing results for "${searchQuery}"` : "Explore our full suite of calculators, organized by category."}
+            </p>
         </div>
 
         {noResults ? (
             <div className="text-center py-16">
                 <h3 className="text-xl font-semibold">No Results Found</h3>
-                <p className="text-muted-foreground mt-2">Try adjusting your search query.</p>
+                <p className="text-muted-foreground mt-2">Try adjusting your search query or view all calculators.</p>
             </div>
         ) : (
           <div className="space-y-8">

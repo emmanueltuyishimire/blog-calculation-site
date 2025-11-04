@@ -1,7 +1,9 @@
+
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import Search from './search';
 
 export default function AppHeader() {
   const navLinks = [
@@ -39,7 +41,9 @@ export default function AppHeader() {
           </Link>
         ))}
       </nav>
-      <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4"></div>
+      <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
+        <Search />
+      </div>
     </header>
   );
 }
