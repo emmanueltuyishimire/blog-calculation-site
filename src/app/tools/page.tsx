@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { hubs } from '@/lib/hubs';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -39,10 +40,10 @@ export default function ToolsPage() {
                         </CardContent>
                         <CardFooter>
                             <Button asChild className="w-full">
-                                <a href={hub.href} target="_blank" rel="noopener noreferrer">
+                                <Link href={hub.href}>
                                     Open Hub
                                     <ArrowRight className="ml-2 size-4" />
-                                </a>
+                                </Link>
                             </Button>
                         </CardFooter>
                     </Card>

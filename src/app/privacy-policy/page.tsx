@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
               </ul>
               <p>
                 Google AdSense and other third-party vendors may use cookies (including the DoubleClick cookie) to serve ads based on your prior visits to our site or other websites. You can opt out of personalized ads by visiting{' '}
-                <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                <a href="https://www.google.com/settings/ads" rel="noopener noreferrer" className="text-primary hover:underline">
                   Google Ads Settings
                 </a>.
               </p>
