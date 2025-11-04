@@ -19,7 +19,6 @@ export default function AppHeader() {
             alt="Calculation Site Logo"
             width={32}
             height={32}
-            className="w-8 h-8"
           />
           <h2 className="text-xl font-bold font-headline hidden sm:block">Calculation Site</h2>
         </Link>
