@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
-import { GraduationCap } from 'lucide-react';
+import { physicsCalculatorCategories } from '@/lib/physics-calculators';
+import { GraduationCap, FlaskConical } from 'lucide-react';
 
 export default function CalculatorsPage() {
   return (
@@ -45,17 +46,32 @@ export default function CalculatorsPage() {
                 ))}
             </div>
 
-            {/* You can add other main categories here in the future */}
-            {/* 
             <div className="space-y-4">
                 <h2 className="text-2xl font-bold tracking-tight flex items-center gap-2">
-                    <YourIcon className="text-primary size-7" />
+                    <FlaskConical className="text-primary size-7" />
                     Physics Calculators
                 </h2>
-                ...
+                {physicsCalculatorCategories.map((category) => (
+                    <Card key={category.name}>
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <category.icon className="text-primary/80 size-6" />
+                                {category.name}
+                            </CardTitle>
+                            {category.description && <CardDescription>{category.description}</CardDescription>}
+                        </CardHeader>
+                        <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                            {category.calculators.map((calculator) => (
+                                <Button key={calculator.name} asChild variant="outline">
+                                    <Link href={calculator.href}>
+                                        {calculator.name}
+                                    </Link>
+                                </Button>
+                            ))}
+                        </CardContent>
+                    </Card>
+                ))}
             </div>
-            */}
-
         </div>
       </div>
     </AppLayout>
