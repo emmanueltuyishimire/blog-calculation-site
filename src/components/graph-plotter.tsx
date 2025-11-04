@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import React, { useMemo } from 'react';
 import { LineChart as LineChartIcon } from 'lucide-react';
 
@@ -28,7 +28,23 @@ const generatePlotData = (formula: string) => {
       .replace(/log/g, 'Math.log')
       .replace(/\^/g, '**');
 
-    const plotFunction = new Function('x', `return ${safeExpression}`);
+    const plotFunction = new Function('x', `
+        const Math = {
+            PI: ${Math.PI},
+            E: ${Math.E},
+            sqrt: ${Math.sqrt},
+            sin: ${Math.sin},
+            cos: ${Math.cos},
+            tan: ${Math.tan},
+            log: ${Math.log},
+            abs: ${Math.abs},
+            round: ${Math.round},
+            ceil: ${Math.ceil},
+            floor: ${Math.floor},
+            random: ${Math.random}
+        };
+        return ${safeExpression}
+    `);
 
     for (let i = -10; i <= 10; i += 0.5) {
       const x = parseFloat(i.toFixed(2));
@@ -64,18 +80,18 @@ export default function GraphPlotter({ formula }: GraphPlotterProps) {
       </CardHeader>
       <CardContent className="h-[calc(100%-7.5rem)]">
         {plotData.length > 0 ? (
-          <ChartContainer config={chartConfig} className="h-full w-full">
-              <LineChart data={plotData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }} aria-label="Graph of the formula">
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                <XAxis dataKey="x" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                <Tooltip
-                  cursor={{stroke: 'hsl(var(--accent))', strokeWidth: 1, strokeDasharray: '3 3'}}
-                  content={<ChartTooltipContent indicator="dot" />}
-                />
-                <Line type="monotone" dataKey="y" stroke="var(--color-y)" strokeWidth={2} dot={false} aria-label="Formula line" />
-              </LineChart>
-          </ChartContainer>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={plotData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }} aria-label="Graph of the formula">
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="x" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+              <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
+              <Tooltip
+                cursor={{stroke: 'hsl(var(--accent))', strokeWidth: 1, strokeDasharray: '3 3'}}
+                content={<ChartTooltipContent indicator="dot" />}
+              />
+              <Line type="monotone" dataKey="y" stroke="hsl(var(--primary))" strokeWidth={2} dot={false} aria-label="Formula line" />
+            </LineChart>
+          </ResponsiveContainer>
         ) : (
           <div className="flex h-full items-center justify-center rounded-lg bg-muted/50">
             <p className="max-w-xs text-center text-sm text-muted-foreground">

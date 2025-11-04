@@ -11,6 +11,7 @@ import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import type { CalculationHistoryItem } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
+import { Calculator } from 'lucide-react';
 
 const evaluateExpression = (expr: string): number | string => {
   if (!expr.trim()) return '...';
@@ -160,17 +161,20 @@ export default function FormulaEditor({ formula, setFormula, setHistory, result,
   };
 
   return (
-    <Card className="flex w-full flex-col">
+    <Card className="flex w-full flex-col h-full">
       <CardHeader>
-        <CardTitle className="font-headline">Calculation Editor</CardTitle>
+        <CardTitle className="font-headline flex items-center gap-2">
+            <Calculator className="text-primary" aria-hidden="true" />
+            Smart Calculator
+        </CardTitle>
         <CardDescription>Enter a mathematical or scientific formula to see the result in real-time.</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 space-y-4">
+      <CardContent className="flex-1 flex flex-col space-y-4">
         <Textarea
           value={formula}
           onChange={(e) => setFormula(e.target.value)}
-          placeholder="e.g., (10 * 2) + 5"
-          className="min-h-[150px] font-mono text-lg"
+          placeholder="e.g., (10 * 2) + 5 or y = x^2"
+          className="min-h-[150px] font-mono text-lg flex-grow"
           aria-label="Formula Input"
         />
         <div className="flex items-center justify-between rounded-lg bg-muted p-4" aria-live="polite">
@@ -178,10 +182,10 @@ export default function FormulaEditor({ formula, setFormula, setHistory, result,
             <span className="text-2xl font-bold font-mono text-primary">{result}</span>
         </div>
         {suggestions.length > 0 && (
-          <div className="space-y-4 pt-4">
+          <div className="space-y-4 pt-4 flex flex-col overflow-hidden">
             <Separator />
             <h3 className="text-lg font-semibold">Unit Conversion Suggestions</h3>
-            <ScrollArea className="h-48 rounded-md border p-4">
+            <ScrollArea className="flex-1 rounded-md border p-4">
               <div className="space-y-4">
                 {suggestions.map((suggestion, index) => (
                   <div key={index} className="grid grid-cols-[1fr_2fr] items-start gap-4">

@@ -34,7 +34,7 @@ export default function CalculationHistory({ history, setHistory, setFormula }: 
   };
   
   return (
-    <Card className="flex flex-col flex-1">
+    <Card className="flex flex-col flex-1 h-full">
       <CardHeader className="flex-row items-center justify-between">
         <div className='space-y-1.5'>
             <CardTitle className="font-headline flex items-center gap-2">

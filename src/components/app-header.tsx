@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Search from './search';
 import { Button } from './ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Calculator } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
 export default function AppHeader() {
@@ -14,7 +14,7 @@ export default function AppHeader() {
     {href: '/tools', label: 'Hubs'},
     {href: '/maths', label: 'Maths'},
     {href: '/ict', label: 'ICT'},
-    {href: '/calculators', label: 'All Tools'},
+    {href: '/calculators', label: 'Smart Calc'},
     {href: '/blog',label: 'Guides'},
   ];
 
@@ -38,8 +38,9 @@ export default function AppHeader() {
           <Link
             key={link.href}
             href={link.href}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground flex items-center gap-1"
           >
+            {link.label === 'Smart Calc' && <Calculator className="h-4 w-4" />}
             {link.label}
           </Link>
         ))}
@@ -71,8 +72,9 @@ export default function AppHeader() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-muted-foreground transition-colors hover:text-foreground flex items-center gap-2"
                 >
+                  {link.label === 'Smart Calc' && <Calculator className="h-5 w-5" />}
                   {link.label}
                 </Link>
               ))}
