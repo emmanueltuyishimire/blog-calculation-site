@@ -1,3 +1,4 @@
+
 'use client';
 
 import AppLayout from '@/components/app-layout';
@@ -5,30 +6,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
-import { ictToolCategories } from '@/lib/ict-tools';
-import type { Metadata } from 'next';
 
 export default function CalculatorsPage() {
-  const allCategories = [
-    ...mathsCalculatorCategories.map(category => ({
-      ...category,
-      calculators: category.calculators.map(c => ({ name: c.name, href: c.href }))
-    })),
-    ...ictToolCategories.map(category => ({
-      ...category,
-      calculators: category.tools.map(t => ({ name: t.name, href: t.href }))
-    }))
-  ];
-
   return (
     <AppLayout>
       <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
         <div className="text-center">
             <h1 className="text-3xl font-bold tracking-tight font-headline">All Calculators</h1>
-            <p className="mt-2 text-muted-foreground">Explore our full suite of calculators, organized by category.</p>
+            <p className="mt-2 text-muted-foreground">Explore our full suite of math calculators, organized by category.</p>
         </div>
 
-        {allCategories.map((category) => (
+        {mathsCalculatorCategories.map((category) => (
             <Card key={category.name}>
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
