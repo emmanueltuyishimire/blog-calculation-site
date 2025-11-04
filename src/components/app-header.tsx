@@ -14,7 +14,7 @@ export default function AppHeader() {
     <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage">
-          <img src="/logo.png" alt="Calculation Site Logo" width="32" height="32" />
+          <img src="/static/logo.png" alt="Calculation Site Logo" width="32" height="32" />
           <h2 className="text-xl font-bold font-headline hidden sm:block">Calculation Site</h2>
         </Link>
       </div>
