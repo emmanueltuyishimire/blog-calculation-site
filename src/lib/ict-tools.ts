@@ -146,11 +146,10 @@ export const ictToolCategories: IctCategory[] = [
         ]
     },
     {
-        name: "AI & Learning Tools",
+        name: "Learning Tools",
         description: "Experimental tools for exploring algorithms and AI concepts.",
         icon: BrainCircuit,
         tools: [
-            { name: "AI Code Generator & Debugger", href: "/coming-soon" },
             { name: "Time Complexity Estimator", href: "/coming-soon" },
             { name: "Algorithm Step Simulator", href: "/coming-soon" },
             { name: "Recursion Calculator / Simulator", href: "/coming-soon" },
