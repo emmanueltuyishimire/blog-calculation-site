@@ -6,13 +6,16 @@ import { useEffect, useState } from 'react';
 export default function AppHeader() {
   const navLinks = [
     {href: '/', label: 'Home'},
+    {href: '/tools', label: 'Tools'},
     {href: '/calculators', label: 'Calculators'},
-    {href: '/blog', label: 'Guides'},
+    {href: '/blog',label: 'Guides'},
     {href: '/about', label: 'About'},
     {href: '/contact', label: 'Contact'},
   ];
 
-  const [logoSrc, setLogoSrc] = useState("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNhbGN1bGF0b3IiPjxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIyMCIgeD0iNCIgeT0iMiIgcng9IjIiLz48bGluZSB4MT0iOCIgeDI9IjE2IiB5MT0iNiIgeTI9IjYiLz48bGluZSB4MT0iOCIgeDI9IjE2IiB5MT0iMTAiIHkyPSIxMCIvPjxsaW5lIHgxPSI4IiB4Mj0iMTYiIHkxPSIxNCIgeTI9IjE0Ii8+PGxpbmUgeDE9IjgiIHgyPSIxNiIgeTE9IjE4IiB5Mj0iMTgiLz48L3N2Zz4=");
+  const [logoSrc, setLogoSrc] = useState(
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAV5JREFUWIXt1r1KA0EYxfFf9+ASBBtBBL+CW8E2YmGptdBGSMA2Yp2g2NppZ+AK2NhYpBC0sVIQBCs/QMS0G5MDf+Sc/HCGc5Jz9p4gUvFfYYMwgo1wAis4xwg+c4AP3OHR/xVn2MccRjjAAR5wjgF84ALf+MWp9AfcYIW5xGg20Yg3rKKLbXCBsYFxtsIPdohjLOM8xjjAAR7whCO84RVX6k/wgh9sYh9b2MEZxtjFE55xjhV84R1X6gP08Y1t7GAH9zjFF/5whyf8YI4h/OEbH/jAN97xi3P1B5zhHW/YxjZ28IQn/OIMB/jAF37xjh+84hWX6gP0cIQh/OAbH/jAN77xSz84xwh+8Ikf/OAb3/jFfV0gUvEfcY0nLOMC3/jFGc5whlU84RxL+MIv7jCIB9ziFRdYxDd+8YxV/PMbK/gBR/jFMX4BBw4Yk9+R62oAAAAASUVORK5CYII="
+  );
 
   return (
     <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
