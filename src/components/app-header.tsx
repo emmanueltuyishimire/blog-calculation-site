@@ -13,23 +13,9 @@ export default function AppHeader() {
   return (
     <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
       <div className="flex items-center gap-2">
-        <Link href="/" className="flex items-center gap-2" aria-label="Homepage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-8 w-8 text-primary"
-          >
-            <rect width="16" height="20" x="4" y="2" rx="2" />
-            <line x1="8" x2="16" y1="6" y2="6" />
-            <line x1="16" x2="16" y1="14" y2="18" />
-            <line x1="8" x2="8" y1="10" y2="18" />
-            <line x1="8" x2="16" y1="14" y2="14" />
-          </svg>
+        <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage">
+          {/* Using a standard img tag for reliability */}
+          <img src="/logo.png" alt="Calculation Site Logo" width="32" height="32" />
           <h2 className="text-xl font-bold font-headline hidden sm:block">Calculation Site</h2>
         </Link>
       </div>
