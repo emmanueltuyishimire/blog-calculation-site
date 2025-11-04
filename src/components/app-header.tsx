@@ -1,38 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 export default function AppHeader() {
-  const [logoSrc, setLogoSrc] = useState<string | null>(null);
-
-  useEffect(() => {
-    // This code runs only on the client, after the component has mounted
-    const savedLogo = localStorage.getItem('appLogo');
-    if (savedLogo) {
-      setLogoSrc(savedLogo);
-    }
-  }, []);
-
   const navLinks = [
     {href: '/', label: 'Home'},
     {href: '/blog', label: 'Guides'},
     {href: '/about', label: 'About'},
     {href: '/contact', label: 'Contact'},
-    {href: '/logo-upload', label: 'Logo'},
   ];
 
   return (
     <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage">
-          {logoSrc ? (
-            <img src={logoSrc} alt="Calculation Site Logo" className="h-8 w-8 object-contain" />
-          ) : (
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-muted text-xs text-muted-foreground">
-              Logo
-            </div>
-          )}
+          <img src="/logo.png" alt="Calculation Site Logo" className="h-8 w-8 object-contain" />
           <h2 className="text-xl font-bold font-headline hidden sm:block">Calculation Site</h2>
         </Link>
       </div>
