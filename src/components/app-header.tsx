@@ -7,10 +7,12 @@ import Search from './search';
 import { Button } from './ui/button';
 import { Menu, X, Calculator } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { LayoutGrid } from 'lucide-react';
 
 export default function AppHeader() {
   const navLinks = [
     {href: '/', label: 'Home'},
+    {href: '/hubs', label: 'Hubs'},
     {href: '/calculators', label: 'Calculators'},
     {href: '/tools', label: 'Tools'},
     {href: '/blog',label: 'Guides'},
@@ -39,6 +41,7 @@ export default function AppHeader() {
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground flex items-center gap-1"
           >
             {link.label === 'Calculators' && <Calculator className="h-4 w-4" />}
+            {link.label === 'Hubs' && <LayoutGrid className="h-4 w-4" />}
             {link.label}
           </Link>
         ))}
@@ -73,6 +76,7 @@ export default function AppHeader() {
                   className="text-muted-foreground transition-colors hover:text-foreground flex items-center gap-2"
                 >
                   {link.label === 'Calculators' && <Calculator className="h-5 w-5" />}
+                  {link.label === 'Hubs' && <LayoutGrid className="h-5 w-5" />}
                   {link.label}
                 </Link>
               ))}

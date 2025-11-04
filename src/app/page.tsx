@@ -82,7 +82,7 @@ export default function Home() {
                 </div>
                  <div className="text-center mt-12">
                     <Button asChild variant="secondary" size="lg">
-                        <Link href="/tools">
+                        <Link href="/hubs">
                             View All Hubs
                         </Link>
                     </Button>
