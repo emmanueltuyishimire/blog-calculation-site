@@ -6,17 +6,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Upload } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function LogoUploadPage() {
   const { toast } = useToast();
   const [currentLogo, setCurrentLogo] = useState<string | null>(null);
 
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
         setCurrentLogo(localStorage.getItem('appLogo'));
     }
-  });
+  }, []);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -38,10 +38,8 @@ export default function LogoUploadPage() {
           setCurrentLogo(result);
           toast({
             title: 'Logo updated!',
-            description: 'Your new logo has been saved and will be displayed in the header.',
+            description: 'Your new logo has been saved. Please reload the page to see it in the header.',
           });
-          // Force a reload of the header or entire page to show the new logo
-          window.location.reload();
         } catch (error) {
             toast({
                 variant: 'destructive',
@@ -59,7 +57,7 @@ export default function LogoUploadPage() {
     setCurrentLogo(null);
     toast({
         title: 'Logo removed',
-        description: 'The logo has been removed from the header.',
+        description: 'The logo has been removed. Please reload to update the header.',
     });
     window.location.reload();
   }

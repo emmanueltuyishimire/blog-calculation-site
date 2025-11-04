@@ -27,7 +27,7 @@ export default function AppHeader() {
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage">
           {logoSrc ? (
-            <img src={logoSrc} alt="Calculation Site Logo" width="32" height="32" />
+            <img src={logoSrc} alt="Calculation Site Logo" className="h-8 w-8 object-contain" />
           ) : (
             <div className="flex h-8 w-8 items-center justify-center rounded-md bg-muted text-xs text-muted-foreground">
               Logo
