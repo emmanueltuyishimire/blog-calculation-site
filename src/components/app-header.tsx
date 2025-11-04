@@ -15,7 +15,7 @@ export default function AppHeader() {
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2" aria-label="Homepage">
           <img
-            src="./logo.png"
+            src="/logo.png"
             alt="Calculation Site Logo"
             width={32}
             height={32}
