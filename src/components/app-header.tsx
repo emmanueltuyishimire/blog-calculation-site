@@ -15,7 +15,7 @@ export default function AppHeader() {
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage">
           {/* Using a standard img tag for reliability */}
-          <img src="/logo.png" alt="Calculation Site Logo" width="32" height="32" />
+          <img src="https://raw.githubusercontent.com/username/repository/main/public/logo.png" alt="Calculation Site Logo" width="32" height="32" />
           <h2 className="text-xl font-bold font-headline hidden sm:block">Calculation Site</h2>
         </Link>
       </div>
