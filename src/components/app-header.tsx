@@ -12,9 +12,7 @@ export default function AppHeader() {
   const navLinks = [
     {href: '/', label: 'Home'},
     {href: '/tools', label: 'Hubs'},
-    {href: '/maths', label: 'Maths'},
     {href: '/ict', label: 'ICT'},
-    {href: '/calculators', label: 'Smart Calc'},
     {href: '/blog',label: 'Guides'},
   ];
 
