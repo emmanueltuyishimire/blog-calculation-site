@@ -1,63 +1,53 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import AppLayout from '@/components/app-layout';
-import FormulaEditor from '@/components/formula-editor';
-import FormulaLibrary from '@/components/formula-library';
-import CalculationHistory from '@/components/calculation-history';
-import GraphPlotter from '@/components/graph-plotter';
-import type { CalculationHistoryItem } from '@/lib/types';
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { mathsCalculatorCategories } from '@/lib/maths-calculators';
+import { ictToolCategories } from '@/lib/ict-tools';
+import type { Metadata } from 'next';
 
 export default function CalculatorsPage() {
-  const [formula, setFormula] = useState('');
-  const [result, setResult] = useState<string | number | null>(null);
-  const [history, setHistory] = useState<CalculationHistoryItem[]>([]);
-
-  useEffect(() => {
-    try {
-      const savedHistory = localStorage.getItem('formulaHistory');
-      if (savedHistory) {
-        setHistory(JSON.parse(savedHistory));
-      }
-    } catch (error) {
-      console.error("Failed to load history from localStorage", error);
-    }
-  }, []);
+  const allCategories = [
+    ...mathsCalculatorCategories.map(category => ({
+      ...category,
+      calculators: category.calculators.map(c => ({ name: c.name, href: c.href }))
+    })),
+    ...ictToolCategories.map(category => ({
+      ...category,
+      calculators: category.tools.map(t => ({ name: t.name, href: t.href }))
+    }))
+  ];
 
   return (
     <AppLayout>
-      <div className="flex-1 overflow-hidden">
-        <ResizablePanelGroup direction="horizontal" className="h-full w-full">
-          <ResizablePanel defaultSize={25} minSize={20} className="min-w-[250px]">
-            <div className="flex h-full flex-col p-4 gap-4">
-               <FormulaLibrary setFormula={setFormula} />
-               <CalculationHistory history={history} setHistory={setHistory} setFormula={setFormula} />
-            </div>
-          </ResizablePanel>
-          <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={75}>
-            <ResizablePanelGroup direction="vertical">
-              <ResizablePanel defaultSize={50} minSize={30}>
-                <div className="p-4 h-full">
-                    <FormulaEditor 
-                        formula={formula} 
-                        setFormula={setFormula}
-                        result={result}
-                        setResult={setResult}
-                        setHistory={setHistory}
-                    />
-                </div>
-              </ResizablePanel>
-              <ResizableHandle withHandle />
-              <ResizablePanel defaultSize={50} minSize={30}>
-                <div className="p-4 h-full">
-                    <GraphPlotter formula={formula} />
-                </div>
-              </ResizablePanel>
-            </ResizablePanelGroup>
-          </ResizablePanel>
-        </ResizablePanelGroup>
+      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
+        <div className="text-center">
+            <h1 className="text-3xl font-bold tracking-tight font-headline">All Calculators</h1>
+            <p className="mt-2 text-muted-foreground">Explore our full suite of calculators, organized by category.</p>
+        </div>
+
+        {allCategories.map((category) => (
+            <Card key={category.name}>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <category.icon className="text-primary size-6" />
+                        {category.name}
+                    </CardTitle>
+                    {category.description && <CardDescription>{category.description}</CardDescription>}
+                </CardHeader>
+                <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    {category.calculators.map((calculator) => (
+                        <Button key={calculator.name} asChild variant="outline">
+                            <Link href={calculator.href}>
+                                {calculator.name}
+                            </Link>
+                        </Button>
+                    ))}
+                </CardContent>
+            </Card>
+        ))}
       </div>
     </AppLayout>
   );
