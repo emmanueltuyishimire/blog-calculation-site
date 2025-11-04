@@ -22,7 +22,7 @@ export default function DisclaimerPage() {
           </CardHeader>
           <CardContent className="space-y-6 text-lg text-muted-foreground max-w-4xl mx-auto">
             <p>
-              The information, tools, and calculators provided on Calculation.site are intended for educational and informational purposes only. While we strive to ensure accuracy and reliability, we do not guarantee that the information on this website is always correct, complete, or up to date.
+              The information, tools, and calculators provided on Calculation Site are intended for educational and informational purposes only. While we strive to ensure accuracy and reliability, we do not guarantee that the information on this website is always correct, complete, or up to date.
             </p>
 
             <div className="space-y-2">

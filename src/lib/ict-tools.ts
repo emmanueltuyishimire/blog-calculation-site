@@ -152,7 +152,7 @@ export const ictToolCategories: IctCategory[] = [
         tools: [
             { name: "AI Code Generator & Debugger", href: "/coming-soon" },
             { name: "Time Complexity Estimator", href: "/coming-soon" },
-            { name: "Algorithm Step Simulator", href: "/comingsoon" },
+            { name: "Algorithm Step Simulator", href: "/coming-soon" },
             { name: "Recursion Calculator / Simulator", href: "/coming-soon" },
         ]
     }
