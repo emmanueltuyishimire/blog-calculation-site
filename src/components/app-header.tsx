@@ -1,22 +1,24 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function AppHeader() {
   const navLinks = [
     {href: '/', label: 'Home'},
+    {href: '/calculators', label: 'Calculators'},
     {href: '/blog', label: 'Guides'},
     {href: '/about', label: 'About'},
     {href: '/contact', label: 'Contact'},
   ];
 
-  const logoDataUri = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNhbGN1bGF0b3IiPjxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIyMCIgeD0iNCIgeT0iMiIgcng9IjIiLz48bGluZSB4MT0iOCIgeDI9IjE2IiB5MT0iNiIgeTI9IjYiLz48bGluZSB4MT0iOCIgeDI9IjE2IiB5MT0iMTAiIHkyPSIxMCIvPjxsaW5lIHgxPSI4IiB4Mj0iMTYiIHkxPSIxNCIgeTI9IjE0Ii8+PGxpbmUgeDE9IjgiIHgyPSIxNiIgeTE9IjE4IiB5Mj0iMTgiLz48L3N2Zz4=";
+  const [logoSrc, setLogoSrc] = useState("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNhbGN1bGF0b3IiPjxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIyMCIgeD0iNCIgeT0iMiIgcng9IjIiLz48bGluZSB4MT0iOCIgeDI9IjE2IiB5MT0iNiIgeTI9IjYiLz48bGluZSB4MT0iOCIgeDI9IjE2IiB5MT0iMTAiIHkyPSIxMCIvPjxsaW5lIHgxPSI4IiB4Mj0iMTYiIHkxPSIxNCIgeTI9IjE0Ii8+PGxpbmUgeDE9IjgiIHgyPSIxNiIgeTE9IjE4IiB5Mj0iMTgiLz48L3N2Zz4=");
 
   return (
     <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage">
-          <img src={logoDataUri} alt="Calculation Site Logo" width="32" height="32" />
+          <img src={logoSrc} alt="Calculation Site Logo" width="32" height="32" />
           <h2 className="text-xl font-bold font-headline hidden sm:block">Calculation Site</h2>
         </Link>
       </div>
