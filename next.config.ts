@@ -10,14 +10,6 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [],
   },
-  async rewrites() {
-    return [
-      {
-        source: '/static/logo.png',
-        destination: '/logo.png',
-      },
-    ]
-  },
 };
 
 export default nextConfig;
