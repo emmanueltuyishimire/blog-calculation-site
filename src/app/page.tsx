@@ -35,21 +35,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="smart-calculator" aria-labelledby="smart-calculator-heading" className="py-16 md:py-24 bg-primary/5">
-            <div className="container mx-auto px-6 text-center">
-                <h2 id="smart-calculator-heading" className="text-3xl font-bold tracking-tight font-headline mb-4">Try Our Smart Calculator</h2>
-                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                    A powerful, multi-functional tool with a formula library, real-time calculations, graphing, and history. Perfect for students, professionals, and anyone in between.
-                </p>
-                <Button asChild size="lg">
-                    <Link href="/smart-calculator">
-                        <Calculator className="mr-2" aria-hidden="true" />
-                        Launch Smart Calculator
-                    </Link>
-                </Button>
-            </div>
-        </section>
-
         <section id="hubs" aria-labelledby="hubs-heading" className="py-16 md:py-24 bg-muted/30">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
