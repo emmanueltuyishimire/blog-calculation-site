@@ -88,7 +88,13 @@ export default function CalculatorsPage() {
         {noResults ? (
             <div className="text-center py-16">
                 <h3 className="text-xl font-semibold">No Results Found</h3>
-                <p className="text-muted-foreground mt-2">Try adjusting your search query or explore our hubs.</p>
+                <p className="text-muted-foreground mt-2">
+                    Try adjusting your search query or{' '}
+                    <Link href="/tools" className="text-primary hover:underline">
+                        explore our hubs
+                    </Link>
+                    .
+                </p>
             </div>
         ) : (
           <div className="space-y-8">
