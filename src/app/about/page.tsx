@@ -89,14 +89,6 @@ export default function AboutPage() {
                     You can also email us directly at: <a href="mailto:support@calculation.site" className="text-primary hover:underline">support@calculation.site</a>
                 </p>
             </div>
-
-            <div className="space-y-4 pt-4 border-t">
-                <h2 className="text-xl font-semibold text-foreground">Disclaimer</h2>
-                <p className='text-sm'>
-                    All tools and content on Calculation Site are provided for educational and informational purposes only.
-                    While we strive for accuracy, results should not be considered professional, financial, medical, or legal advice.
-                </p>
-            </div>
           </CardContent>
         </Card>
       </div>
