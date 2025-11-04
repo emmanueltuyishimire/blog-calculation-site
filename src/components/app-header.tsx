@@ -8,7 +8,7 @@ import Search from './search';
 export default function AppHeader() {
   const navLinks = [
     {href: '/', label: 'Home'},
-    {href: '/tools', label: 'Categories'},
+    {href: '/tools', label: 'Tools'},
     {href: '/calculators', label: 'Calculators'},
     {href: '/blog',label: 'Guides'},
     {href: '/about', label: 'About'},
