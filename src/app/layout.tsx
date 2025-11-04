@@ -5,7 +5,6 @@ import { Toaster } from '@/components/ui/toaster';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { cn } from '@/lib/utils';
-import AppLayout from '@/components/app-layout';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 

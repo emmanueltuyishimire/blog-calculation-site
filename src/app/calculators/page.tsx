@@ -1,62 +1,94 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
 import AppLayout from '@/components/app-layout';
-import FormulaEditor from '@/components/formula-editor';
-import FormulaLibrary from '@/components/formula-library';
-import CalculationHistory from '@/components/calculation-history';
-import type { CalculationHistoryItem } from '@/lib/types';
-import GraphPlotter from '@/components/graph-plotter';
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { mathsCalculatorCategories } from '@/lib/maths-calculators';
+import { physicsCalculatorCategories } from '@/lib/physics-calculators';
+import { useSearchParams } from 'next/navigation';
+import { useState, useMemo, useEffect } from 'react';
+import type { Metadata } from 'next';
 
-export default function SmartCalculatorPage() {
-  const [formula, setFormula] = useState<string>('P * (1 + r * t)');
-  const [result, setResult] = useState<string | number | null>(null);
-  const [history, setHistory] = useState<CalculationHistoryItem[]>([]);
+const metadata: Metadata = {
+    title: 'All Calculators',
+    description: 'A comprehensive directory of free online calculators for math, physics, and more. Find the tool you need for any calculation.',
+    keywords: ['all calculators', 'math calculators', 'physics calculators', 'calculator directory', 'free online tools'],
+    alternates: {
+      canonical: '/calculators',
+    },
+};
+
+
+export default function CalculatorsPage() {
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
 
   useEffect(() => {
-    try {
-      const savedHistory = localStorage.getItem('formulaHistory');
-      if (savedHistory) {
-        setHistory(JSON.parse(savedHistory));
-      }
-    } catch (error) {
-      console.error("Failed to load history from localStorage", error);
-    }
-  }, []);
-  
+    setSearchQuery(initialQuery);
+  }, [initialQuery]);
+
+  const allCategories = useMemo(() => [
+      ...mathsCalculatorCategories.map(c => ({...c, type: 'Maths'})),
+      ...physicsCalculatorCategories.map(c => ({...c, type: 'Physics'})),
+  ], []);
+
+  const filteredCategories = useMemo(() => {
+    if (!searchQuery) return allCategories;
+    const lowerCaseQuery = searchQuery.toLowerCase();
+    return allCategories.map(category => ({
+      ...category,
+      calculators: category.calculators.filter(calculator =>
+        calculator.name.toLowerCase().includes(lowerCaseQuery)
+      ),
+    })).filter(category => category.calculators.length > 0);
+  }, [searchQuery, allCategories]);
+
+  const noResults = filteredCategories.length === 0;
+
   return (
     <AppLayout>
-      <div className="flex-1 overflow-hidden">
-        <ResizablePanelGroup direction="horizontal" className="h-full w-full">
-            <ResizablePanel defaultSize={20} minSize={15} className="min-w-[250px]">
-                <FormulaLibrary setFormula={setFormula} />
-            </ResizablePanel>
-            <ResizableHandle withHandle />
-            <ResizablePanel defaultSize={55} minSize={40}>
-                <ResizablePanelGroup direction="vertical">
-                    <ResizablePanel defaultSize={60} minSize={40}>
-                        <FormulaEditor 
-                            formula={formula}
-                            setFormula={setFormula}
-                            setHistory={setHistory}
-                            result={result}
-                            setResult={setResult}
-                        />
-                    </ResizablePanel>
-                    <ResizableHandle withHandle />
-                    <ResizablePanel defaultSize={40} minSize={25}>
-                       <GraphPlotter formula={formula} />
-                    </ResizablePanel>
-                </ResizablePanelGroup>
-            </ResizablePanel>
-            <ResizableHandle withHandle />
-            <ResizablePanel defaultSize={25} minSize={20} className="min-w-[300px]">
-                <CalculationHistory history={history} setHistory={setHistory} setFormula={setFormula} />
-            </ResizablePanel>
-        </ResizablePanelGroup>
+      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+            <h1 className="text-3xl font-bold tracking-tight font-headline">All Calculators</h1>
+            <p className="mt-2 text-muted-foreground">
+                {searchQuery ? `Showing results for "${searchQuery}"` : "Your free resource for all things math and science. From basic arithmetic to advanced physics."}
+            </p>
+        </div>
+        
+        {noResults && searchQuery ? (
+            <div className="text-center py-16">
+                <h3 className="text-xl font-semibold">No Results Found</h3>
+                <p className="text-muted-foreground mt-2">Try adjusting your search query or view all calculators.</p>
+            </div>
+        ) : (
+            <div className="space-y-8">
+            {filteredCategories.map((category) => (
+                <Card key={`${category.type}-${category.name}`}>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <category.icon className="text-primary size-6" />
+                            {category.name}
+                        </CardTitle>
+                        {category.description && <CardDescription>{category.description}</CardDescription>}
+                    </CardHeader>
+                    <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        {category.calculators.map((calculator) => (
+                            <Button key={calculator.name} asChild variant="outline">
+                                <Link href={calculator.href}>
+                                    {calculator.name}
+                                </Link>
+                            </Button>
+                        ))}
+                    </CardContent>
+                </Card>
+            ))}
+            </div>
+        )}
       </div>
     </AppLayout>
   );
 }
+

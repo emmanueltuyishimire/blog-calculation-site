@@ -20,7 +20,7 @@ export const mathsCalculatorCategories: MathsCategory[] = [
         description: "Tools for fundamental arithmetic, algebraic equations, and number theory.",
         icon: CalculatorIcon,
         calculators: [
-            { name: "Smart Calculator", href: "/calculators" },
+            { name: "Smart Calculator", href: "/smart-calculator" },
             { name: "Basic Calculator", href: "/coming-soon" },
             { name: "Scientific Calculator", href: "/coming-soon" },
             { name: "Fraction Calculator", href: "/coming-soon" },
