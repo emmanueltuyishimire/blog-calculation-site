@@ -11,8 +11,8 @@ import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 export default function AppHeader() {
   const navLinks = [
     {href: '/', label: 'Home'},
-    {href: '/tools', label: 'Hubs'},
-    {href: '/ict', label: 'ICT'},
+    {href: '/calculators', label: 'Calculators'},
+    {href: '/tools', label: 'Tools'},
     {href: '/blog',label: 'Guides'},
   ];
 
@@ -38,7 +38,7 @@ export default function AppHeader() {
             href={link.href}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground flex items-center gap-1"
           >
-            {link.label === 'Smart Calc' && <Calculator className="h-4 w-4" />}
+            {link.label === 'Calculators' && <Calculator className="h-4 w-4" />}
             {link.label}
           </Link>
         ))}
@@ -72,7 +72,7 @@ export default function AppHeader() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-muted-foreground transition-colors hover:text-foreground flex items-center gap-2"
                 >
-                  {link.label === 'Smart Calc' && <Calculator className="h-5 w-5" />}
+                  {link.label === 'Calculators' && <Calculator className="h-5 w-5" />}
                   {link.label}
                 </Link>
               ))}
