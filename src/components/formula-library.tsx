@@ -59,7 +59,7 @@ export default function FormulaLibrary({ setFormula }: FormulaLibraryProps) {
     <Card className="flex flex-col flex-1">
       <CardHeader>
         <CardTitle className="font-headline flex items-center gap-2">
-          <BookOpen className="text-primary" />
+          <BookOpen className="text-primary" aria-hidden="true" />
           Formula Library
         </CardTitle>
       </CardHeader>
@@ -70,8 +70,9 @@ export default function FormulaLibrary({ setFormula }: FormulaLibraryProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                aria-label="Search for a formula"
             />
-            <Button onClick={handleSearch} disabled={isSearching} size="icon">
+            <Button onClick={handleSearch} disabled={isSearching} size="icon" aria-label="Perform search">
                 {isSearching ? <Loader2 className="animate-spin"/> : <Search />}
             </Button>
         </div>
@@ -81,7 +82,7 @@ export default function FormulaLibrary({ setFormula }: FormulaLibraryProps) {
             <AccordionItem key={category.name} value={category.name}>
               <AccordionTrigger>
                 <div className="flex items-center gap-2">
-                  <category.icon className="h-5 w-5 text-primary/80" />
+                  <category.icon className="h-5 w-5 text-primary/80" aria-hidden="true" />
                   {category.name}
                 </div>
               </AccordionTrigger>
@@ -93,6 +94,7 @@ export default function FormulaLibrary({ setFormula }: FormulaLibraryProps) {
                       onClick={() => setFormula(formula.expression)}
                       className="p-2 text-left hover:bg-accent rounded-md transition-colors text-sm"
                       title={formula.description}
+                      aria-label={`Use formula: ${formula.name}`}
                     >
                       {formula.name}
                     </button>

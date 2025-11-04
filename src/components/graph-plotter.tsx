@@ -57,7 +57,7 @@ export default function GraphPlotter({ formula }: GraphPlotterProps) {
     <Card className="h-full">
       <CardHeader>
         <CardTitle className="font-headline flex items-center gap-2">
-            <LineChartIcon className="text-primary" />
+            <LineChartIcon className="text-primary" aria-hidden="true" />
             Graph Plotter
         </CardTitle>
         <CardDescription>Visualize your formula. Enter an equation in terms of 'x' (e.g., y = 2*x + sin(x)).</CardDescription>
@@ -65,7 +65,7 @@ export default function GraphPlotter({ formula }: GraphPlotterProps) {
       <CardContent className="h-[calc(100%-7.5rem)]">
         {plotData.length > 0 ? (
           <ChartContainer config={chartConfig} className="h-full w-full">
-              <LineChart data={plotData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
+              <LineChart data={plotData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }} aria-label="Graph of the formula">
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                 <XAxis dataKey="x" stroke="hsl(var(--muted-foreground))" fontSize={12} />
                 <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
@@ -73,7 +73,7 @@ export default function GraphPlotter({ formula }: GraphPlotterProps) {
                   cursor={{stroke: 'hsl(var(--accent))', strokeWidth: 1, strokeDasharray: '3 3'}}
                   content={<ChartTooltipContent indicator="dot" />}
                 />
-                <Line type="monotone" dataKey="y" stroke="var(--color-y)" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="y" stroke="var(--color-y)" strokeWidth={2} dot={false} aria-label="Formula line" />
               </LineChart>
           </ChartContainer>
         ) : (

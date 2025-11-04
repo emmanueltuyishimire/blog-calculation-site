@@ -55,8 +55,8 @@ export default function Home() {
                                 <CardFooter className="p-6 pt-0">
                                     <Button asChild className="w-full">
                                         <Link href={hub.href}>
-                                            Open Hub
-                                            <ArrowRight className="ml-2 size-4" />
+                                            Open {hub.title}
+                                            <ArrowRight className="ml-2 size-4" aria-hidden="true" />
                                         </Link>
                                     </Button>
                                 </CardFooter>
@@ -100,7 +100,7 @@ export default function Home() {
                 </p>
                 <Button asChild size="lg">
                     <Link href="/blog">
-                        Visit Our Blog <ArrowRight className="ml-2" />
+                        Visit Our Blog <ArrowRight className="ml-2" aria-hidden="true" />
                     </Link>
                 </Button>
             </div>

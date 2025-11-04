@@ -38,7 +38,7 @@ export default function CalculationHistory({ history, setHistory, setFormula }: 
       <CardHeader className="flex-row items-center justify-between">
         <div className='space-y-1.5'>
             <CardTitle className="font-headline flex items-center gap-2">
-                <History className="text-primary" />
+                <History className="text-primary" aria-hidden="true" />
                 History
             </CardTitle>
             <CardDescription>Your recent calculations.</CardDescription>
@@ -62,6 +62,7 @@ export default function CalculationHistory({ history, setHistory, setFormula }: 
                             <button 
                                 className="w-full text-left p-2 rounded-md hover:bg-muted"
                                 onClick={() => setFormula(item.formula)}
+                                aria-label={`Use formula: ${item.formula}`}
                             >
                                 <p className="text-sm font-mono truncate" title={item.formula}>{item.formula}</p>
                                 <p className="text-xs text-muted-foreground">
@@ -74,6 +75,7 @@ export default function CalculationHistory({ history, setHistory, setFormula }: 
                                 size="icon"
                                 className="absolute top-1/2 right-1 -translate-y-1/2 h-7 w-7 opacity-0 group-hover:opacity-100 transition-opacity"
                                 onClick={() => handleCopyToClipboard(String(item.result))}
+                                aria-label={`Copy result ${item.result} to clipboard`}
                             >
                                 <Clipboard className="h-4 w-4"/>
                             </Button>

@@ -25,7 +25,6 @@ const evaluateExpression = (expr: string): number | string => {
       .replace(/log/g, 'Math.log')
       .replace(/\^/g, '**');
 
-    // Basic validation to prevent obvious malicious code
     if (/[a-zA-Z_]+[a-zA-Z0-9_]*\(/.test(safeExpr) && !/Math\.\w+\(/.test(safeExpr)) {
         if (!['sqrt(', 'sin(', 'cos(', 'tan(', 'log('].some(fn => safeExpr.includes(fn))) {
             return 'Invalid function';
@@ -43,7 +42,6 @@ const evaluateExpression = (expr: string): number | string => {
 
     return parseFloat(result.toFixed(10));
   } catch (error) {
-    // This will catch undefined variables, syntax errors, etc.
     return '...';
   }
 };
@@ -144,7 +142,7 @@ export default function FormulaEditor({ formula, setFormula, setHistory, result,
           className="min-h-[150px] font-mono text-lg"
           aria-label="Formula Input"
         />
-        <div className="flex items-center justify-between rounded-lg bg-muted p-4">
+        <div className="flex items-center justify-between rounded-lg bg-muted p-4" aria-live="polite">
             <span className="text-sm text-muted-foreground">Result:</span>
             <span className="text-2xl font-bold font-mono text-primary">{result}</span>
         </div>
@@ -175,14 +173,14 @@ export default function FormulaEditor({ formula, setFormula, setHistory, result,
       <CardFooter className="justify-between border-t px-6 py-4">
         <Button onClick={handleUnitConversion} disabled={isSuggestingUnits} variant="ghost">
           {isSuggestingUnits ? (
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
           ) : (
-            <Lightbulb className="mr-2 h-4 w-4" />
+            <Lightbulb className="mr-2 h-4 w-4" aria-hidden="true" />
           )}
           Suggest Units
         </Button>
          <Button onClick={handleSaveToHistory} disabled={typeof result !== 'number'}>
-            <Save className="mr-2 h-4 w-4" />
+            <Save className="mr-2 h-4 w-4" aria-hidden="true" />
             Save to History
          </Button>
       </CardFooter>

@@ -31,7 +31,7 @@ export default function ToolsPage() {
                 return (
                     <Card key={hub.title} className="flex flex-col">
                         <CardHeader className="flex-row items-center gap-4">
-                            <Icon className="size-10 text-primary" />
+                            <Icon className="size-10 text-primary" aria-hidden="true" />
                             <div>
                                 <CardTitle>{hub.title}</CardTitle>
                             </div>
@@ -42,8 +42,8 @@ export default function ToolsPage() {
                         <CardFooter>
                             <Button asChild className="w-full">
                                 <Link href={hub.href}>
-                                    Open Hub
-                                    <ArrowRight className="ml-2 size-4" />
+                                    Open {hub.title}
+                                    <ArrowRight className="ml-2 size-4" aria-hidden="true" />
                                 </Link>
                             </Button>
                         </CardFooter>
