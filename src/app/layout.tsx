@@ -5,7 +5,6 @@ import { Toaster } from '@/components/ui/toaster';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { cn } from '@/lib/utils';
-import AppHeader from '@/components/app-header';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
@@ -78,8 +77,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex min-h-screen flex-col bg-background" suppressHydrationWarning>
-        <AppHeader />
-        <main className="flex-1">{children}</main>
+        {children}
         <Toaster />
       </body>
     </html>
