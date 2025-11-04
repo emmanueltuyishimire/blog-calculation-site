@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 export default function TermsAndConditionsPage() {
   return (
     <AppLayout>
-      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
+      <div className="container mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-bold">Terms of Service</CardTitle>
+            <CardTitle className="text-3xl font-bold font-headline">Terms of Service</CardTitle>
             <p className="text-muted-foreground">Last Updated: November 1, 2025</p>
           </CardHeader>
-          <CardContent className="space-y-6 text-lg text-muted-foreground max-w-4xl mx-auto">
+          <CardContent className="space-y-6 text-lg text-muted-foreground">
             <p>
               Welcome to Calculation Site. By accessing or using this website, you agree to comply with and be bound by the following Terms of Service. If you do not agree to these terms, please do not use our website or services.
             </p>

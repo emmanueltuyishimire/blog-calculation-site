@@ -14,15 +14,18 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <AppLayout>
-      <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
+      <div className="container mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8">
         <Card>
           <CardHeader>
-            <CardTitle>Guides</CardTitle>
+            <CardTitle className="text-center text-3xl font-bold font-headline">Our Blog</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>
-              This is where the blog/guides will be.
-            </p>
+            <div className="text-center py-16">
+                <h3 className="text-xl font-semibold">Coming Soon</h3>
+                <p className="text-muted-foreground mt-2">
+                    We're currently writing articles. Check back soon for helpful guides!
+                </p>
+            </div>
           </CardContent>
         </Card>
       </div>

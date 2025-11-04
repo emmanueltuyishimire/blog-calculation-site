@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 export default function ToolsPage() {
   return (
     <AppLayout>
-      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
-        <div className="text-center">
-            <h1 className="text-3xl font-bold tracking-tight">Tools Directory</h1>
+      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+            <h1 className="text-3xl font-bold tracking-tight font-headline">Tools & Hubs Directory</h1>
             <p className="mt-2 text-muted-foreground">Explore our specialized hubs for all your calculation needs.</p>
         </div>
 

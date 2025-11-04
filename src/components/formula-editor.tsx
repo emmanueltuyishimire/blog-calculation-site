@@ -15,26 +15,56 @@ import { Badge } from '@/components/ui/badge';
 const evaluateExpression = (expr: string): number | string => {
   if (!expr.trim()) return '...';
   try {
-    const safeExpr = expr
+    // Whitelist of allowed Math functions
+    const allowedMath = new Set(['PI', 'E', 'sqrt', 'sin', 'cos', 'tan', 'log', 'abs', 'round', 'ceil', 'floor', 'random']);
+    
+    // Replace common aliases and ensure they are part of Math
+    let safeExpr = expr
       .replace(/\bpi\b/gi, 'Math.PI')
       .replace(/\be\b/gi, 'Math.E')
-      .replace(/sqrt/g, 'Math.sqrt')
-      .replace(/sin/g, 'Math.sin')
-      .replace(/cos/g, 'Math.cos')
-      .replace(/tan/g, 'Math.tan')
-      .replace(/log/g, 'Math.log')
       .replace(/\^/g, '**');
 
-    if (/[a-zA-Z_]+[a-zA-Z0-9_]*\(/.test(safeExpr) && !/Math\.\w+\(/.test(safeExpr)) {
-        if (!['sqrt(', 'sin(', 'cos(', 'tan(', 'log('].some(fn => safeExpr.includes(fn))) {
-            return 'Invalid function';
-        }
-    }
-    if (/[^0-9.+\-*/().,\s\w]/.test(safeExpr.replace(/Math\./g, ''))) {
+    // Validate that only allowed characters and functions are present
+    const sanitized = safeExpr.replace(/Math\./g, '');
+    if (/[^a-zA-Z0-9.+\-*/().,\s]/.test(sanitized)) {
       return 'Invalid characters';
     }
 
-    const result = new Function('return ' + safeExpr)();
+    // Check for any standalone function calls that aren't in our Math whitelist
+    const functionCalls = sanitized.match(/[a-zA-Z_][a-zA-Z0-9_]*(?=\()/g) || [];
+    for (const func of functionCalls) {
+      if (!allowedMath.has(func)) {
+        return `Invalid function: ${func}`;
+      }
+    }
+    // Prepend Math. to whitelisted functions that don't have it
+    allowedMath.forEach(func => {
+        if(func.length > 2) { // avoid replacing 'e'
+            const regex = new RegExp(`\\b${func}\\b(?!\\.)`, 'g');
+            safeExpr = safeExpr.replace(regex, `Math.${func}`);
+        }
+    });
+
+
+    // Use a sandboxed function constructor
+    const result = new Function(`
+      "use strict";
+      const Math = {
+        PI: ${Math.PI},
+        E: ${Math.E},
+        sqrt: ${Math.sqrt},
+        sin: ${Math.sin},
+        cos: ${Math.cos},
+        tan: ${Math.tan},
+        log: ${Math.log},
+        abs: ${Math.abs},
+        round: ${Math.round},
+        ceil: ${Math.ceil},
+        floor: ${Math.floor},
+        random: ${Math.random}
+      };
+      return ${safeExpr};
+    `)();
     
     if (typeof result !== 'number' || !isFinite(result)) {
       return "Invalid calculation";
@@ -42,7 +72,8 @@ const evaluateExpression = (expr: string): number | string => {
 
     return parseFloat(result.toFixed(10));
   } catch (error) {
-    return '...';
+    // console.error("Evaluation error:", error);
+    return 'Error';
   }
 };
 

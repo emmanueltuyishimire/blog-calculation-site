@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <AppLayout>
-      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
+      <div className="container mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8">
         <Card>
           <CardHeader>
-            <CardTitle className="text-3xl font-bold text-center">Privacy Policy</CardTitle>
+            <CardTitle className="text-3xl font-bold text-center font-headline">Privacy Policy</CardTitle>
             <p className="text-center text-muted-foreground">Last Updated: November 1, 2025</p>
           </CardHeader>
-          <CardContent className="space-y-6 text-lg text-muted-foreground max-w-4xl mx-auto">
+          <CardContent className="space-y-6 text-lg text-muted-foreground">
             <p>
               Welcome to Calculation Site. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website and tools.
             </p>

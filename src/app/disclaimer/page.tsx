@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 export default function DisclaimerPage() {
   return (
     <AppLayout>
-      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
+      <div className="container mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-bold">Disclaimer</CardTitle>
+            <CardTitle className="text-3xl font-bold font-headline">Disclaimer</CardTitle>
             <p className="text-muted-foreground">Last Updated: November 1, 2025</p>
           </CardHeader>
-          <CardContent className="space-y-6 text-lg text-muted-foreground max-w-4xl mx-auto">
+          <CardContent className="space-y-6 text-lg text-muted-foreground">
             <p>
               The information, tools, and calculators provided on Calculation Site are intended for educational and informational purposes only. While we strive to ensure accuracy and reliability, we do not guarantee that the information on this website is always correct, complete, or up to date.
             </p>

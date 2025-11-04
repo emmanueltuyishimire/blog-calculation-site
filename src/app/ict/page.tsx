@@ -6,9 +6,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ictToolCategories } from '@/lib/ict-tools';
-import type { Metadata } from 'next';
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo, useEffect } from 'react';
+import type { Metadata } from 'next';
 
 const metadata: Metadata = {
     title: 'ICT & Tech Utilities Hub',
@@ -30,10 +30,11 @@ export default function IctPage() {
 
   const filteredIctCategories = useMemo(() => {
     if (!searchQuery) return ictToolCategories;
+    const lowerCaseQuery = searchQuery.toLowerCase();
     return ictToolCategories.map(category => ({
       ...category,
       tools: category.tools.filter(tool =>
-        tool.name.toLowerCase().includes(searchQuery.toLowerCase())
+        tool.name.toLowerCase().includes(lowerCaseQuery)
       ),
     })).filter(category => category.tools.length > 0);
   }, [searchQuery]);
@@ -42,15 +43,15 @@ export default function IctPage() {
 
   return (
     <AppLayout>
-      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
-        <div className="text-center">
+      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
             <h1 className="text-3xl font-bold tracking-tight font-headline">ICT & Tech Utilities</h1>
             <p className="mt-2 text-muted-foreground">
                 {searchQuery ? `Showing results for "${searchQuery}"` : "A collection of handy tools for developers, network engineers, and tech enthusiasts."}
             </p>
         </div>
 
-        {noResults ? (
+        {noResults && searchQuery ? (
             <div className="text-center py-16">
                 <h3 className="text-xl font-semibold">No Results Found</h3>
                 <p className="text-muted-foreground mt-2">Try adjusting your search query or view all tools.</p>

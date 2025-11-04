@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <AppLayout>
-      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
+      <div className="container mx-auto max-w-3xl py-12 px-4 sm:px-6 lg:px-8">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-bold">Contact Us</CardTitle>
+            <CardTitle className="text-3xl font-bold font-headline">Contact Us</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-8 text-lg text-muted-foreground max-w-3xl mx-auto">
+          <CardContent className="space-y-8 text-lg text-muted-foreground">
             <p className="text-center">
               We’d love to hear from you! Whether you have feedback, suggestions, or questions about our tools and resources, we’re here to help.
             </p>
@@ -43,24 +43,24 @@ export default function ContactPage() {
 
             <div className="space-y-4">
                 <h2 className="text-2xl font-semibold text-foreground">What You Can Contact Us About</h2>
-                <ul className="space-y-3 pl-5 list-none">
+                <ul className="space-y-3 list-none">
                     <li className="flex items-start">
-                        <Bug className="mr-3 mt-1 h-5 w-5 text-primary" />
+                        <Bug className="mr-3 mt-1 h-5 w-5 text-primary flex-shrink-0" />
                         <span>Reporting a bug or issue with one of our tools</span>
                     </li>
                     <li className="flex items-start">
-                        <Lightbulb className="mr-3 mt-1 h-5 w-5 text-primary" />
+                        <Lightbulb className="mr-3 mt-1 h-5 w-5 text-primary flex-shrink-0" />
                         <span>Requesting a new calculator or feature</span>
                     </li>
                     <li className="flex items-start">
-                        <Briefcase className="mr-3 mt-1 h-5 w-5 text-primary" />
+                        <Briefcase className="mr-3 mt-1 h-5 w-5 text-primary flex-shrink-0" />
                         <span>Business or collaboration inquiries</span>
                     </li>
                 </ul>
             </div>
             
             <div className="space-y-2 pt-4 border-t flex items-start">
-                <AlertTriangle className="mr-3 mt-1 h-5 w-5 text-amber-500" />
+                <AlertTriangle className="mr-3 mt-1 h-5 w-5 text-amber-500 flex-shrink-0" />
                 <div className='text-sm'>
                     <h3 className='font-semibold text-foreground mb-1'>Note</h3>
                     <p>

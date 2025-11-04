@@ -55,8 +55,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#673AB7' },
-    { media: '(prefers-color-scheme: dark)', color: '#7e57c2' },
+    { media: '(prefers-color-scheme: light)', color: '#22c55e' },
+    { media: '(prefers-color-scheme: dark)', color: '#22c55e' },
   ],
   colorScheme: 'light dark',
 }
@@ -78,9 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
-        <AppLayout>
-          {children}
-        </AppLayout>
+        {children}
         <Toaster />
       </body>
     </html>

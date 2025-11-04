@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { hubs } from '@/lib/hubs';
 import { ArrowRight, ShieldCheck, Zap, Smartphone, Lock, Rocket } from 'lucide-react';
+import AppLayout from '@/components/app-layout';
 
 export default function Home() {
   const whyChooseUs = [
@@ -19,7 +20,7 @@ export default function Home() {
   const mainHubs = hubs.slice(0, 6);
 
   return (
-    <>
+    <AppLayout>
         <section className="bg-background py-16 md:py-24 text-center">
           <div className="container mx-auto px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 font-headline">
@@ -84,7 +85,7 @@ export default function Home() {
                        const Icon = item.icon;
                        return (
                         <div key={item.text} className="flex items-start gap-4">
-                            <Icon className="size-6 text-accent flex-shrink-0 mt-1" aria-hidden="true" />
+                            <Icon className="size-6 text-primary flex-shrink-0 mt-1" aria-hidden="true" />
                             <p className="text-muted-foreground">{item.text}</p>
                         </div>
                    )})}
@@ -117,6 +118,6 @@ export default function Home() {
                 </p>
             </div>
         </section>
-    </>
+    </AppLayout>
     );
 }

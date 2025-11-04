@@ -1,49 +1,77 @@
-import AppLayout from '@/components/app-layout';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, GraduationCap } from 'lucide-react';
-import { mathsCalculatorCategories } from '@/lib/maths-calculators';
-import Link from 'next/link';
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-    title: 'Maths Calculators Hub',
-    description: 'Your free resource for all things math. Explore calculators for basic arithmetic, algebra, geometry, trigonometry, statistics, and advanced calculus.',
-    keywords: ['maths calculators', 'algebra calculator', 'geometry calculator', 'statistics tools', 'trigonometry solver', 'free math help'],
-    alternates: {
-      canonical: '/maths',
-    },
-};
+'use client';
+
+import AppLayout from '@/components/app-layout';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { mathsCalculatorCategories } from '@/lib/maths-calculators';
+import { useSearchParams } from 'next/navigation';
+import { useState, useMemo, useEffect } from 'react';
+
+// Metadata is now handled in layout.tsx, but we can keep this for page-specific overrides if needed.
+// export const metadata: Metadata = { ... };
 
 export default function MathsPage() {
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
+
+  useEffect(() => {
+    setSearchQuery(initialQuery);
+  }, [initialQuery]);
+
+  const filteredMathsCategories = useMemo(() => {
+    if (!searchQuery) return mathsCalculatorCategories;
+    return mathsCalculatorCategories.map(category => ({
+      ...category,
+      calculators: category.calculators.filter(calculator =>
+        calculator.name.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
+    })).filter(category => category.calculators.length > 0);
+  }, [searchQuery]);
+
+  const noResults = filteredMathsCategories.length === 0;
+
   return (
     <AppLayout>
-      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
-        <div className="text-center">
+      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
             <h1 className="text-3xl font-bold tracking-tight font-headline">Maths Calculators</h1>
-            <p className="mt-2 text-muted-foreground">Your free resource for all things math. From basic arithmetic to advanced calculus.</p>
+            <p className="mt-2 text-muted-foreground">
+                {searchQuery ? `Showing results for "${searchQuery}"` : "Your free resource for all things math. From basic arithmetic to advanced calculus."}
+            </p>
         </div>
-
-        {mathsCalculatorCategories.map((category) => (
-            <Card key={category.name}>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <category.icon className="text-primary size-6" />
-                        {category.name}
-                    </CardTitle>
-                    {category.description && <CardDescription>{category.description}</CardDescription>}
-                </CardHeader>
-                <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                    {category.calculators.map((calculator) => (
-                        <Button key={calculator.name} asChild variant="outline">
-                            <Link href={calculator.href}>
-                                {calculator.name}
-                            </Link>
-                        </Button>
-                    ))}
-                </CardContent>
-            </Card>
-        ))}
+        
+        {noResults ? (
+            <div className="text-center py-16">
+                <h3 className="text-xl font-semibold">No Results Found</h3>
+                <p className="text-muted-foreground mt-2">Try adjusting your search query or view all calculators.</p>
+            </div>
+        ) : (
+            <div className="space-y-8">
+            {filteredMathsCategories.map((category) => (
+                <Card key={category.name}>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <category.icon className="text-primary size-6" />
+                            {category.name}
+                        </CardTitle>
+                        {category.description && <CardDescription>{category.description}</CardDescription>}
+                    </CardHeader>
+                    <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        {category.calculators.map((calculator) => (
+                            <Button key={calculator.name} asChild variant="outline">
+                                <Link href={calculator.href}>
+                                    {calculator.name}
+                                </Link>
+                            </Button>
+                        ))}
+                    </CardContent>
+                </Card>
+            ))}
+            </div>
+        )}
       </div>
     </AppLayout>
   );
