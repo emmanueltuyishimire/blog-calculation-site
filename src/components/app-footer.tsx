@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import { sitePages } from '@/lib/site-pages';
+import Image from 'next/image';
 
 export default function AppFooter() {
   const currentYear = new Date().getFullYear();
@@ -11,7 +12,7 @@ export default function AppFooter() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <Link href="/" className="flex items-center gap-2 font-semibold">
-              <img src="/logo.png" alt="Calculation Site Logo" className="h-8 w-auto" />
+              <Image src="/logo.png" alt="Calculation Site Logo" width={32} height={32} className="h-8 w-auto" />
               <span className="text-xl font-bold font-headline text-foreground">Calculation Site</span>
             </Link>
             <p className="mt-2 max-w-xs">
