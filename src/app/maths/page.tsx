@@ -8,6 +8,16 @@ import Link from 'next/link';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo, useEffect, Suspense } from 'react';
+import type { Metadata } from 'next';
+
+// export const metadata: Metadata = {
+//     title: 'Maths Calculators Hub',
+//     description: 'Explore a comprehensive collection of free online math calculators for algebra, geometry, statistics, calculus, and more. Get instant answers for your math problems.',
+//     keywords: ['maths calculators', 'math hub', 'algebra calculator', 'geometry calculator', 'statistics tools', 'calculus solver'],
+//     alternates: {
+//       canonical: '/maths',
+//     },
+// };
 
 function MathsContent() {
   const searchParams = useSearchParams();
@@ -40,7 +50,7 @@ function MathsContent() {
             </p>
         </div>
         
-        {noResults ? (
+        {noResults && searchQuery ? (
             <div className="text-center py-16">
                 <h3 className="text-xl font-semibold">No Results Found</h3>
                 <p className="text-muted-foreground mt-2">Try adjusting your search query or view all calculators.</p>

@@ -9,6 +9,16 @@ import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import { physicsCalculatorCategories } from '@/lib/physics-calculators';
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo, useEffect, Suspense } from 'react';
+import type { Metadata } from 'next';
+
+// export const metadata: Metadata = {
+//     title: 'All Calculators – Math & Physics Tools',
+//     description: 'Browse our complete collection of free online calculators. Find tools for both mathematics and physics, from basic arithmetic to advanced scientific computations.',
+//     keywords: ['all calculators', 'math calculators', 'physics calculators', 'free online tools', 'scientific calculator'],
+//     alternates: {
+//       canonical: '/calculators',
+//     },
+// };
 
 function CalculatorsContent() {
   const searchParams = useSearchParams();

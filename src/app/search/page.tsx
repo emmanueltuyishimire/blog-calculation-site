@@ -13,7 +13,17 @@ import { sitePages } from '@/lib/site-pages';
 import { GraduationCap, FlaskConical, Cpu, LayoutGrid, FileText } from 'lucide-react';
 import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import type { Metadata } from 'next';
 
+// export const metadata: Metadata = {
+//     title: 'Search Results',
+//     description: 'Find calculators, tools, and pages across Calculation.site. Enter a query to search our entire collection of resources.',
+//     keywords: ['search', 'find calculator', 'tool search', 'site search'],
+//     robots: 'noindex, follow', // No need to index the search results page itself
+//     alternates: {
+//       canonical: '/search',
+//     },
+// };
 
 function SearchContent() {
   const searchParams = useSearchParams();
@@ -86,12 +96,12 @@ function SearchContent() {
             </p>
         </div>
 
-        {noResults ? (
+        {noResults && searchQuery ? (
             <div className="text-center py-16">
                 <h3 className="text-xl font-semibold">No Results Found</h3>
                 <p className="text-muted-foreground mt-2">
                     Try adjusting your search query or{' '}
-                    <Link href="/tools" className="text-primary hover:underline">
+                    <Link href="/hubs" className="text-primary hover:underline">
                         explore our hubs
                     </Link>
                     .
