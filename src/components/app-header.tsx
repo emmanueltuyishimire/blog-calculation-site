@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Search from './search';
 import { Button } from './ui/button';
 import { Menu, X, Calculator, LayoutGrid } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetDescription, SheetTitle } from './ui/sheet';
 
 export default function AppHeader() {
   const navLinks = [
@@ -57,6 +57,10 @@ export default function AppHeader() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+            <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+            <SheetDescription className="sr-only">
+              Main navigation links for Calculation Site.
+            </SheetDescription>
             <nav className="flex flex-col gap-6 text-lg font-medium pt-8">
               <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage" onClick={() => setIsMobileMenuOpen(false)}>
                 <Calculator className="h-8 w-auto text-primary" />
