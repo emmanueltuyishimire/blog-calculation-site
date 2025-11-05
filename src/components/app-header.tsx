@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import Link from 'next/link';
@@ -41,7 +40,7 @@ export default function AppHeader() {
             {link.label === 'Calculators' && <Calculator className="h-4 w-4" />}
             {link.label === 'Hubs' && <LayoutGrid className="h-4 w-4" />}
             {link.label}
-            {link.screenReaderLabel && <span className="sr-only">{link.screenReaderLabel}</span>}
+            <>{link.screenReaderLabel && <span className="sr-only">{link.screenReaderLabel}</span>}</>
           </Link>
         ))}
       </nav>
@@ -83,7 +82,7 @@ export default function AppHeader() {
                   {link.label === 'Calculators' && <Calculator className="h-5 w-5" />}
                   {link.label === 'Hubs' && <LayoutGrid className="h-5 w-5" />}
                   {link.label}
-                  {link.screenReaderLabel && <span className="sr-only">{link.screenReaderLabel}</span>}
+                  <>{link.screenReaderLabel && <span className="sr-only">{link.screenReaderLabel}</span>}</>
                 </Link>
               ))}
             </nav>
