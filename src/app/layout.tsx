@@ -69,6 +69,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={cn(inter.variable)}>
       <head>
         <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XFXW29LKY3"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XFXW29LKY3');
+          `}
+        </Script>
+        <Script
           id="google-adsense"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3042243846300811"
