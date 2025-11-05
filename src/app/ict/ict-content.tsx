@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import AppLayout from '@/components/app-layout';
@@ -10,7 +9,7 @@ import { ictToolCategories } from '@/lib/ict-tools';
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo, useEffect } from 'react';
 
-export default function ToolsContent() {
+export default function IctContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
