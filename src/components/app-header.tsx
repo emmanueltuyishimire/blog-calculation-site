@@ -7,14 +7,14 @@ import { useState } from 'react';
 import Search from './search';
 import { Button } from './ui/button';
 import { Menu, X, Calculator, LayoutGrid } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger, SheetDescription, SheetTitle } from './ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetHeader } from './ui/sheet';
 
 export default function AppHeader() {
   const navLinks = [
     {href: '/', label: 'Home'},
-    {href: '/hubs', label: 'Hubs'},
-    {href: '/calculators', label: 'Calculators'},
-    {href: '/tools', label: 'Tools'},
+    {href: '/hubs', label: 'Hubs', screenReaderLabel: 'All hubs'},
+    {href: '/calculators', label: 'Calculators', screenReaderLabel: 'All calculators'},
+    {href: '/tools', label: 'Tools', screenReaderLabel: 'All tools'},
     {href: '/blog',label: 'Guides'},
   ];
 
@@ -41,6 +41,7 @@ export default function AppHeader() {
             {link.label === 'Calculators' && <Calculator className="h-4 w-4" />}
             {link.label === 'Hubs' && <LayoutGrid className="h-4 w-4" />}
             {link.label}
+            {link.screenReaderLabel && <span className="sr-only">{link.screenReaderLabel}</span>}
           </Link>
         ))}
       </nav>
@@ -58,18 +59,20 @@ export default function AppHeader() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-            <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-            <SheetDescription className="sr-only" id="mobile-menu-description">
-              Main navigation links for Calculation Site.
-            </SheetDescription>
-            <nav className="flex flex-col gap-6 text-lg font-medium pt-8" aria-describedby="mobile-menu-description">
-              <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage" onClick={() => setIsMobileMenuOpen(false)}>
+            <div className="flex items-center gap-2 font-semibold p-6" aria-label="Homepage">
                 <Calculator className="h-8 w-auto text-primary" />
                 <span className="text-xl font-bold font-headline">Calculation Site</span>
-              </Link>
-              <div className="sm:hidden">
+            </div>
+            <SheetHeader className="p-6 pt-0">
+                <SheetTitle>Menu</SheetTitle>
+                <SheetDescription>
+                    Main navigation links for Calculation Site.
+                </SheetDescription>
+            </SheetHeader>
+            <div className="px-6 sm:hidden">
                 <Search />
-              </div>
+            </div>
+            <nav className="flex flex-col gap-6 text-lg font-medium pt-8 px-6" aria-label="Mobile navigation">
               {navLinks.map(link => (
                 <Link
                   key={link.href}
@@ -80,6 +83,7 @@ export default function AppHeader() {
                   {link.label === 'Calculators' && <Calculator className="h-5 w-5" />}
                   {link.label === 'Hubs' && <LayoutGrid className="h-5 w-5" />}
                   {link.label}
+                  {link.screenReaderLabel && <span className="sr-only">{link.screenReaderLabel}</span>}
                 </Link>
               ))}
             </nav>

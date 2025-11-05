@@ -28,9 +28,9 @@ function SearchContent() {
 
   const allCalculators = useMemo(() => {
     return [
-      ...mathsCalculatorCategories.flatMap(cat => cat.calculators.map(calc => ({ ...calc, category: 'Maths', categoryIcon: cat.icon, categoryName: cat.name }))),
-      ...physicsCalculatorCategories.flatMap(cat => cat.calculators.map(calc => ({ ...calc, category: 'Physics', categoryIcon: cat.icon, categoryName: cat.name }))),
-      ...ictToolCategories.flatMap(cat => cat.tools.map(tool => ({ ...tool, category: 'ICT', categoryIcon: cat.icon, categoryName: cat.name })))
+      ...mathsCalculatorCategories.flatMap(cat => cat.calculators.map(calc => ({ ...calc, category: 'Maths', categoryIcon: cat.icon, categoryName: cat.name, categoryHref: '/maths' }))),
+      ...physicsCalculatorCategories.flatMap(cat => cat.calculators.map(calc => ({ ...calc, category: 'Physics', categoryIcon: cat.icon, categoryName: cat.name, categoryHref: '/coming-soon' }))),
+      ...ictToolCategories.flatMap(cat => cat.tools.map(tool => ({ ...tool, category: 'ICT', categoryIcon: cat.icon, categoryName: cat.name, categoryHref: '/tools' })))
     ];
   }, []);
 
@@ -62,12 +62,13 @@ function SearchContent() {
         acc[categoryName] = {
           calculators: [],
           icon: calculator.categoryIcon,
-          type: calculator.category
+          type: calculator.category,
+          href: calculator.categoryHref,
         };
       }
       acc[categoryName].calculators.push(calculator);
       return acc;
-    }, {} as Record<string, { calculators: typeof filteredCalculators, icon: any, type: string | undefined }>);
+    }, {} as Record<string, { calculators: typeof filteredCalculators, icon: any, type: string | undefined, href: string | undefined }>);
   }, [filteredCalculators]);
 
   const getCategoryIcon = (type: string | undefined) => {
@@ -104,18 +105,22 @@ function SearchContent() {
               {Object.keys(groupedCalculators).length > 0 && (
                 <div className="space-y-4">
                   <h2 className="text-2xl font-bold tracking-tight">Calculators & Tools</h2>
-                  {Object.entries(groupedCalculators).map(([categoryName, { calculators, icon: CategoryIcon, type }]) => (
+                  {Object.entries(groupedCalculators).map(([categoryName, { calculators, icon: CategoryIcon, type, href }]) => (
                     <div key={categoryName} className="space-y-4 pl-4 border-l-2 border-primary/20">
-                      <h3 className="text-xl font-bold tracking-tight flex items-center gap-2">
-                          {getCategoryIcon(type)}
-                          {type} Calculators
-                      </h3>
+                      <Link href={href || '#'} className='group'>
+                        <h3 className="text-xl font-bold tracking-tight flex items-center gap-2 group-hover:underline">
+                            {getCategoryIcon(type)}
+                            {type} Calculators
+                        </h3>
+                      </Link>
                       <Card>
                           <CardHeader>
-                              <CardTitle className="flex items-center gap-2 text-lg">
+                            <Link href={href || '#'}>
+                              <CardTitle className="flex items-center gap-2 text-lg hover:underline">
                                   <CategoryIcon className="text-primary/80 size-5" />
                                   {categoryName}
                               </CardTitle>
+                            </Link>
                           </CardHeader>
                           <CardContent className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {calculators.map((calculator) => (
