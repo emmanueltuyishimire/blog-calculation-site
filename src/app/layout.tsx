@@ -71,21 +71,26 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={cn(inter.variable)}>
       <head>
         <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XFXW29LKY3"
-        />
-        <Script id="google-analytics">
-          {`
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'G-XFXW29LKY3');
-          `}
-        </Script>
+          `,
+          }}
+        />
+         <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XFXW29LKY3"
+        />
         <Script
           id="google-adsense"
           async
+          strategy="lazyOnload"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3042243846300811"
           crossOrigin="anonymous"
         />
