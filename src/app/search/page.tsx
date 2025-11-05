@@ -120,7 +120,7 @@ function SearchContent() {
                                 <CardContent className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                                     {category.calculators.map((calculator) => (
                                         <Button key={calculator.name} asChild variant="outline" size="sm">
-                                            <Link href={calculator.href}>
+                                            <Link href={calculator.href} target="_blank" rel="noopener noreferrer">
                                                 {calculator.name}
                                             </Link>
                                         </Button>
@@ -148,7 +148,7 @@ function SearchContent() {
                                 <CardContent className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                                     {category.calculators.map((calculator) => (
                                         <Button key={calculator.name} asChild variant="outline" size="sm">
-                                            <Link href={calculator.href}>
+                                            <Link href={calculator.href} target="_blank" rel="noopener noreferrer">
                                                 {calculator.name}
                                             </Link>
                                         </Button>
@@ -176,7 +176,7 @@ function SearchContent() {
                                 <CardContent className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                                     {category.tools.map((tool) => (
                                         <Button key={tool.name} asChild variant="outline" size="sm">
-                                            <Link href={tool.href}>
+                                            <Link href={tool.href} target="_blank" rel="noopener noreferrer">
                                                 {tool.name}
                                             </Link>
                                         </Button>

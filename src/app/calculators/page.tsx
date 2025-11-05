@@ -9,16 +9,6 @@ import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import { physicsCalculatorCategories } from '@/lib/physics-calculators';
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo, useEffect, Suspense } from 'react';
-import type { Metadata } from 'next';
-
-const metadata: Metadata = {
-    title: 'All Calculators',
-    description: 'A comprehensive directory of free online calculators for math, physics, and more. Find the tool you need for any calculation.',
-    keywords: ['all calculators', 'math calculators', 'physics calculators', 'calculator directory', 'free online tools'],
-    alternates: {
-      canonical: '/calculators',
-    },
-};
 
 function CalculatorsContent() {
   const searchParams = useSearchParams();
@@ -76,7 +66,7 @@ function CalculatorsContent() {
                     <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                         {category.calculators.map((calculator) => (
                             <Button key={calculator.name} asChild variant="outline">
-                                <Link href={calculator.href}>
+                                <Link href={calculator.href} target="_blank" rel="noopener noreferrer">
                                     {calculator.name}
                                 </Link>
                             </Button>

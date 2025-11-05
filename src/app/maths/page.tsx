@@ -59,7 +59,7 @@ function MathsContent() {
                     <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                         {category.calculators.map((calculator) => (
                             <Button key={calculator.name} asChild variant="outline">
-                                <Link href={calculator.href}>
+                                <Link href={calculator.href} target="_blank" rel="noopener noreferrer">
                                     {calculator.name}
                                 </Link>
                             </Button>

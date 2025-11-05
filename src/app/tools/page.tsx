@@ -60,7 +60,7 @@ function ToolsContent() {
                     <CardContent className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                         {category.tools.map((tool) => (
                             <Button key={tool.name} asChild variant="outline">
-                                <Link href={tool.href}>
+                                <Link href={tool.href} target="_blank" rel="noopener noreferrer">
                                     {tool.name}
                                 </Link>
                             </Button>
