@@ -11,10 +11,11 @@ import { ictToolCategories } from '@/lib/ict-tools';
 import { hubs } from '@/lib/hubs';
 import { sitePages } from '@/lib/site-pages';
 import { GraduationCap, FlaskConical, Cpu, LayoutGrid, FileText } from 'lucide-react';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function SearchPage() {
+
+function SearchContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
@@ -230,4 +231,12 @@ export default function SearchPage() {
       </div>
     </AppLayout>
   );
+}
+
+export default function SearchPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <SearchContent />
+        </Suspense>
+    )
 }

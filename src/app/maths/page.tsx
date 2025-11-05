@@ -7,12 +7,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import { useSearchParams } from 'next/navigation';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 
-// Metadata is now handled in layout.tsx, but we can keep this for page-specific overrides if needed.
-// export const metadata: Metadata = { ... };
-
-export default function MathsPage() {
+function MathsContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
@@ -75,4 +72,12 @@ export default function MathsPage() {
       </div>
     </AppLayout>
   );
+}
+
+export default function MathsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <MathsContent />
+        </Suspense>
+    )
 }

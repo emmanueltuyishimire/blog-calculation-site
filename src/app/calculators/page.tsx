@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import { physicsCalculatorCategories } from '@/lib/physics-calculators';
 import { useSearchParams } from 'next/navigation';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import type { Metadata } from 'next';
 
 const metadata: Metadata = {
@@ -20,8 +20,7 @@ const metadata: Metadata = {
     },
 };
 
-
-export default function CalculatorsPage() {
+function CalculatorsContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
@@ -92,3 +91,11 @@ export default function CalculatorsPage() {
   );
 }
 
+
+export default function CalculatorsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <CalculatorsContent />
+        </Suspense>
+    )
+}

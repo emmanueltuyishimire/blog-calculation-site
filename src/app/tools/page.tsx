@@ -7,19 +7,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ictToolCategories } from '@/lib/ict-tools';
 import { useSearchParams } from 'next/navigation';
-import { useState, useMemo, useEffect } from 'react';
-import type { Metadata } from 'next';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 
-const metadata: Metadata = {
-    title: 'ICT & Tech Utilities Hub',
-    description: 'A collection of handy online tools for developers, network engineers, and tech enthusiasts. Includes networking, server, coding, and security utilities.',
-    keywords: ['ict tools', 'tech utilities', 'developer tools', 'networking calculator', 'subnet calculator', 'code generator'],
-    alternates: {
-      canonical: '/tools',
-    },
-};
-
-export default function ToolsPage() {
+function ToolsContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
@@ -83,4 +73,12 @@ export default function ToolsPage() {
       </div>
     </AppLayout>
   );
+}
+
+export default function ToolsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ToolsContent />
+        </Suspense>
+    )
 }
