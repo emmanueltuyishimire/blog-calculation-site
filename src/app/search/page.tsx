@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import AppLayout from '@/components/app-layout';
@@ -13,17 +14,6 @@ import { sitePages } from '@/lib/site-pages';
 import { GraduationCap, FlaskConical, Cpu, LayoutGrid, FileText } from 'lucide-react';
 import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import type { Metadata } from 'next';
-
-// export const metadata: Metadata = {
-//     title: 'Search Results',
-//     description: 'Find calculators, tools, and pages across Calculation.site. Enter a query to search our entire collection of resources.',
-//     keywords: ['search', 'find calculator', 'tool search', 'site search'],
-//     robots: 'noindex, follow', // No need to index the search results page itself
-//     alternates: {
-//       canonical: '/search',
-//     },
-// };
 
 function SearchContent() {
   const searchParams = useSearchParams();
@@ -36,36 +26,19 @@ function SearchContent() {
 
   const lowerCaseQuery = searchQuery.toLowerCase();
 
-  const filteredMathsCategories = useMemo(() => {
-    if (!searchQuery) return [];
-    return mathsCalculatorCategories.map(category => ({
-      ...category,
-      calculators: category.calculators.filter(calculator =>
-        calculator.name.toLowerCase().includes(lowerCaseQuery)
-      ),
-    })).filter(category => category.calculators.length > 0);
-  }, [lowerCaseQuery]);
+  const allCalculators = useMemo(() => {
+    return [
+      ...mathsCalculatorCategories.flatMap(cat => cat.calculators.map(calc => ({ ...calc, category: 'Maths', categoryIcon: cat.icon, categoryName: cat.name }))),
+      ...physicsCalculatorCategories.flatMap(cat => cat.calculators.map(calc => ({ ...calc, category: 'Physics', categoryIcon: cat.icon, categoryName: cat.name }))),
+      ...ictToolCategories.flatMap(cat => cat.tools.map(tool => ({ ...tool, category: 'ICT', categoryIcon: cat.icon, categoryName: cat.name })))
+    ];
+  }, []);
 
-  const filteredPhysicsCategories = useMemo(() => {
+  const filteredCalculators = useMemo(() => {
     if (!searchQuery) return [];
-    return physicsCalculatorCategories.map(category => ({
-      ...category,
-      calculators: category.calculators.filter(calculator =>
-        calculator.name.toLowerCase().includes(lowerCaseQuery)
-      ),
-    })).filter(category => category.calculators.length > 0);
-  }, [lowerCaseQuery]);
+    return allCalculators.filter(calc => calc.name.toLowerCase().includes(lowerCaseQuery));
+  }, [lowerCaseQuery, allCalculators]);
 
-  const filteredIctCategories = useMemo(() => {
-    if (!searchQuery) return [];
-    return ictToolCategories.map(category => ({
-      ...category,
-      tools: category.tools.filter(tool =>
-        tool.name.toLowerCase().includes(lowerCaseQuery)
-      ),
-    })).filter(category => category.tools.length > 0);
-  }, [lowerCaseQuery]);
-  
   const filteredHubs = useMemo(() => {
     if (!searchQuery) return [];
     return hubs.filter(hub => hub.title.toLowerCase().includes(lowerCaseQuery));
@@ -77,14 +50,32 @@ function SearchContent() {
   }, [lowerCaseQuery]);
 
   const noResults = !searchQuery || (
-    filteredMathsCategories.length === 0 &&
-    filteredPhysicsCategories.length === 0 &&
-    filteredIctCategories.length === 0 &&
+    filteredCalculators.length === 0 &&
     filteredHubs.length === 0 &&
     filteredSitePages.length === 0
   );
 
-  const hasToolResults = filteredMathsCategories.length > 0 || filteredPhysicsCategories.length > 0 || filteredIctCategories.length > 0;
+  const groupedCalculators = useMemo(() => {
+    return filteredCalculators.reduce((acc, calculator) => {
+      const { categoryName = 'Unknown' } = calculator;
+      if (!acc[categoryName]) {
+        acc[categoryName] = {
+          calculators: [],
+          icon: calculator.categoryIcon,
+          type: calculator.category
+        };
+      }
+      acc[categoryName].calculators.push(calculator);
+      return acc;
+    }, {} as Record<string, { calculators: typeof filteredCalculators, icon: any, type: string | undefined }>);
+  }, [filteredCalculators]);
+
+  const getCategoryIcon = (type: string | undefined) => {
+    if (type === 'Maths') return <GraduationCap className="text-primary size-6" />;
+    if (type === 'Physics') return <FlaskConical className="text-primary size-6" />;
+    if (type === 'ICT') return <Cpu className="text-primary size-6" />;
+    return null;
+  }
 
   return (
     <AppLayout>
@@ -110,92 +101,34 @@ function SearchContent() {
         ) : (
           <div className="space-y-8">
 
-              {hasToolResults && (
+              {Object.keys(groupedCalculators).length > 0 && (
                 <div className="space-y-4">
                   <h2 className="text-2xl font-bold tracking-tight">Calculators & Tools</h2>
-                  {filteredMathsCategories.length > 0 && (
-                    <div className="space-y-4 pl-4 border-l-2 border-primary/20">
-                        <h3 className="text-xl font-bold tracking-tight flex items-center gap-2">
-                            <GraduationCap className="text-primary size-6" />
-                            Maths Calculators
-                        </h3>
-                        {filteredMathsCategories.map((category) => (
-                            <Card key={category.name}>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center gap-2 text-lg">
-                                        <category.icon className="text-primary/80 size-5" />
-                                        {category.name}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                                    {category.calculators.map((calculator) => (
-                                        <Button key={calculator.name} asChild variant="outline" size="sm">
-                                            <Link href={calculator.href} target="_blank" rel="noopener noreferrer">
-                                                {calculator.name}
-                                            </Link>
-                                        </Button>
-                                    ))}
-                                </CardContent>
-                            </Card>
-                        ))}
+                  {Object.entries(groupedCalculators).map(([categoryName, { calculators, icon: CategoryIcon, type }]) => (
+                    <div key={categoryName} className="space-y-4 pl-4 border-l-2 border-primary/20">
+                      <h3 className="text-xl font-bold tracking-tight flex items-center gap-2">
+                          {getCategoryIcon(type)}
+                          {type} Calculators
+                      </h3>
+                      <Card>
+                          <CardHeader>
+                              <CardTitle className="flex items-center gap-2 text-lg">
+                                  <CategoryIcon className="text-primary/80 size-5" />
+                                  {categoryName}
+                              </CardTitle>
+                          </CardHeader>
+                          <CardContent className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                              {calculators.map((calculator) => (
+                                  <Button key={calculator.name} asChild variant="outline" size="sm">
+                                      <Link href={calculator.href} target="_blank" rel="noopener noreferrer">
+                                          {calculator.name}
+                                      </Link>
+                                  </Button>
+                              ))}
+                          </CardContent>
+                      </Card>
                     </div>
-                  )}
-
-                  {filteredPhysicsCategories.length > 0 && (
-                    <div className="space-y-4 pl-4 border-l-2 border-primary/20">
-                        <h3 className="text-xl font-bold tracking-tight flex items-center gap-2">
-                            <FlaskConical className="text-primary size-6" />
-                            Physics Calculators
-                        </h3>
-                        {filteredPhysicsCategories.map((category) => (
-                            <Card key={category.name}>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center gap-2 text-lg">
-                                        <category.icon className="text-primary/80 size-5" />
-                                        {category.name}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                                    {category.calculators.map((calculator) => (
-                                        <Button key={calculator.name} asChild variant="outline" size="sm">
-                                            <Link href={calculator.href} target="_blank" rel="noopener noreferrer">
-                                                {calculator.name}
-                                            </Link>
-                                        </Button>
-                                    ))}
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
-                  )}
-
-                  {filteredIctCategories.length > 0 && (
-                    <div className="space-y-4 pl-4 border-l-2 border-primary/20">
-                        <h2 className="text-xl font-bold tracking-tight flex items-center gap-2">
-                            <Cpu className="text-primary size-6" />
-                            ICT & Tech Utilities
-                        </h2>
-                        {filteredIctCategories.map((category) => (
-                            <Card key={category.name}>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center gap-2 text-lg">
-                                        <category.icon className="text-primary/80 size-5" />
-                                        {category.name}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                                    {category.tools.map((tool) => (
-                                        <Button key={tool.name} asChild variant="outline" size="sm">
-                                            <Link href={tool.href} target="_blank" rel="noopener noreferrer">
-                                                {tool.name}
-                                            </Link>
-                                        </Button>
-                                    ))}
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
-                  )}
+                  ))}
                 </div>
               )}
 

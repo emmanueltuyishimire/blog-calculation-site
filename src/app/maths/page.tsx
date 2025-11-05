@@ -1,7 +1,8 @@
 
 import type { Metadata } from 'next';
-import MathsContent from './maths-content';
 import { Suspense } from 'react';
+import MathsContent from './maths-content';
+
 
 export const metadata: Metadata = {
     title: 'Maths Calculators Hub',

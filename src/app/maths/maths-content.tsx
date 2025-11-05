@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import AppLayout from '@/components/app-layout';
@@ -20,10 +21,11 @@ export default function MathsContent() {
 
   const filteredMathsCategories = useMemo(() => {
     if (!searchQuery) return mathsCalculatorCategories;
+    const lowerCaseQuery = searchQuery.toLowerCase();
     return mathsCalculatorCategories.map(category => ({
       ...category,
       calculators: category.calculators.filter(calculator =>
-        calculator.name.toLowerCase().includes(searchQuery.toLowerCase())
+        calculator.name.toLowerCase().includes(lowerCaseQuery)
       ),
     })).filter(category => category.calculators.length > 0);
   }, [searchQuery]);

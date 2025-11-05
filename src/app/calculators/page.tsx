@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import AppLayout from '@/components/app-layout';
@@ -9,6 +10,17 @@ import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import { physicsCalculatorCategories } from '@/lib/physics-calculators';
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo, useEffect, Suspense } from 'react';
+import type { Metadata } from 'next';
+
+// export const metadata: Metadata = {
+//     title: 'All Calculators',
+//     description: 'Your free resource for all things math and science. From basic arithmetic to advanced physics, find the right tool for your calculations.',
+//     keywords: ['all calculators', 'math calculators', 'physics calculators', 'science tools', 'online calculators'],
+//     alternates: {
+//       canonical: '/calculators',
+//     },
+// };
+
 
 function CalculatorsContent() {
   const searchParams = useSearchParams();

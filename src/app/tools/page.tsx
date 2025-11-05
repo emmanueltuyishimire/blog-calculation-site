@@ -1,4 +1,5 @@
 
+
 import type { Metadata } from 'next';
 import ToolsContent from './tools-content';
 import { Suspense } from 'react';

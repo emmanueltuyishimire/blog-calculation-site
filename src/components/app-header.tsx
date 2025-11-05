@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import Link from 'next/link';
@@ -58,10 +59,10 @@ export default function AppHeader() {
           </SheetTrigger>
           <SheetContent side="left" className="w-[300px] sm:w-[400px]">
             <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-            <SheetDescription className="sr-only">
+            <SheetDescription className="sr-only" id="mobile-menu-description">
               Main navigation links for Calculation Site.
             </SheetDescription>
-            <nav className="flex flex-col gap-6 text-lg font-medium pt-8">
+            <nav className="flex flex-col gap-6 text-lg font-medium pt-8" aria-describedby="mobile-menu-description">
               <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage" onClick={() => setIsMobileMenuOpen(false)}>
                 <Calculator className="h-8 w-auto text-primary" />
                 <span className="text-xl font-bold font-headline">Calculation Site</span>
