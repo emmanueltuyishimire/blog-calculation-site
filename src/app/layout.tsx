@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { cn } from '@/lib/utils';
+import AppHeader from '@/components/app-header';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   publisher: 'Calculation Site',
   robots: 'index, follow',
   icons: {
-    icon: './favicon.ico',
+    icon: '/favicon.ico',
   },
   alternates: {
     canonical: '/',
@@ -89,6 +90,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex min-h-screen flex-col bg-background" suppressHydrationWarning>
+        <AppHeader />
         {children}
         <Toaster />
       </body>
