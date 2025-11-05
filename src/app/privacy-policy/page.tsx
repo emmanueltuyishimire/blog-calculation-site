@@ -1,3 +1,4 @@
+
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
@@ -35,7 +36,7 @@ export default function PrivacyPolicyPage() {
                 </li>
                 <li>
                   <strong>Personal information (optional):</strong> Only when you voluntarily contact us via email at{' '}
-                  <a href="mailto:calculation250@gmail.com" className="text-primary hover:underline">calculation250@gmail.com</a>.
+                  <a href="mailto:support@calculation.site" className="text-primary hover:underline">support@calculation.site</a>.
                 </li>
               </ul>
               <p>
@@ -114,8 +115,8 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-semibold text-foreground">9. Contact Us</h2>
               <p>
                 If you have questions or concerns about this Privacy Policy, please contact us at:{' '}
-                <a href="mailto:calculation250@gmail.com" className="text-primary hover:underline">
-                  calculation250@gmail.com
+                <a href="mailto:support@calculation.site" className="text-primary hover:underline">
+                  support@calculation.site
                 </a>
               </p>
             </div>

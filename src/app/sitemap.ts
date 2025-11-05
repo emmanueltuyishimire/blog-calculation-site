@@ -1,3 +1,4 @@
+
 import { MetadataRoute } from 'next';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
 import { physicsCalculatorCategories } from '@/lib/physics-calculators';

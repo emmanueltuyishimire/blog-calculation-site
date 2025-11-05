@@ -1,3 +1,4 @@
+
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
@@ -100,8 +101,8 @@ export default function TermsAndConditionsPage() {
               <h2 className="text-2xl font-semibold text-foreground">10. Contact Us</h2>
               <p>
                 If you have any questions about these Terms of Service, please contact us at:{' '}
-                <a href="mailto:calculation250@gmail.com" className="text-primary hover:underline">
-                  calculation250@gmail.com
+                <a href="mailto:support@calculation.site" className="text-primary hover:underline">
+                  support@calculation.site
                 </a>
               </p>
             </div>

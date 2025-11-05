@@ -1,3 +1,4 @@
+
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Metadata } from 'next';
@@ -72,8 +73,8 @@ export default function DisclaimerPage() {
               <h2 className="text-2xl font-semibold text-foreground">6. Contact</h2>
               <p>
                 For questions about this disclaimer or our website policies, please contact us at:{' '}
-                <a href="mailto:calculation250@gmail.com" className="text-primary hover:underline">
-                  calculation250@gmail.com
+                <a href="mailto:support@calculation.site" className="text-primary hover:underline">
+                  support@calculation.site
                 </a>
               </p>
             </div>

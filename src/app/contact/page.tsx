@@ -1,3 +1,4 @@
+
 import AppLayout from '@/components/app-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
@@ -32,8 +33,8 @@ export default function ContactPage() {
                     If you’d like to contact us, please reach out via email at:
                 </p>
                 <p className='text-center'>
-                    <a href="mailto:calculation250@gmail.com" className="font-semibold text-primary hover:underline text-xl">
-                    calculation250@gmail.com
+                    <a href="mailto:support@calculation.site" className="font-semibold text-primary hover:underline text-xl">
+                    support@calculation.site
                     </a>
                 </p>
                 <p className="text-sm text-center">
