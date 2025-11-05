@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { cn } from '@/lib/utils';
 import AppHeader from '@/components/app-header';
+import AppFooter from '@/components/app-footer';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
@@ -92,6 +93,7 @@ export default function RootLayout({
       <body className="font-body antialiased flex min-h-screen flex-col bg-background" suppressHydrationWarning>
         <AppHeader />
         {children}
+        <AppFooter />
         <Toaster />
       </body>
     </html>
