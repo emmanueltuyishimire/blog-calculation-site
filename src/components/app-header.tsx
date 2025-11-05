@@ -5,10 +5,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Search from './search';
 import { Button } from './ui/button';
-import { Menu, X, Calculator } from 'lucide-react';
+import { Menu, X, Calculator, LayoutGrid } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { LayoutGrid } from 'lucide-react';
-import Image from 'next/image';
 
 export default function AppHeader() {
   const navLinks = [
@@ -24,7 +22,7 @@ export default function AppHeader() {
   return (
     <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-4 border-b bg-background px-4 md:px-6">
       <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage">
-        <Image src="/logo.png" alt="Calculation Site Logo" width={32} height={32} className="h-8 w-auto" />
+        <Calculator className="h-8 w-auto text-primary" />
         <span className="text-xl font-bold font-headline hidden sm:inline-block">Calculation Site</span>
         <span className="text-xl font-bold font-headline sm:hidden">CalcSite</span>
       </Link>
@@ -61,7 +59,7 @@ export default function AppHeader() {
           <SheetContent side="left" className="w-[300px] sm:w-[400px]">
             <nav className="flex flex-col gap-6 text-lg font-medium pt-8">
               <Link href="/" className="flex items-center gap-2 font-semibold" aria-label="Homepage" onClick={() => setIsMobileMenuOpen(false)}>
-                <Image src="/logo.png" alt="Calculation Site Logo" width={32} height={32} className="h-8 w-auto" />
+                <Calculator className="h-8 w-auto text-primary" />
                 <span className="text-xl font-bold font-headline">Calculation Site</span>
               </Link>
               <div className="sm:hidden">
