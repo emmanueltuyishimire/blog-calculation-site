@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import AppLayout from '@/components/app-layout';
@@ -9,8 +8,18 @@ import Link from 'next/link';
 import { ictToolCategories } from '@/lib/ict-tools';
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo, useEffect, Suspense } from 'react';
+import type { Metadata } from 'next';
 
-function ToolsContent() {
+// export const metadata: Metadata = {
+//     title: 'ICT & Tech Utilities Hub',
+//     description: 'A collection of handy tools for developers, network engineers, and tech enthusiasts. Find utilities for networking, web development, security, and more.',
+//     keywords: ['ICT tools', 'tech utilities', 'developer tools', 'networking calculator', 'subnet calculator', 'password generator'],
+//     alternates: {
+//       canonical: '/ict',
+//     },
+// };
+
+function IctToolsContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
@@ -79,7 +88,7 @@ function ToolsContent() {
 export default function IctPage() {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <ToolsContent />
+            <IctToolsContent />
         </Suspense>
     )
 }

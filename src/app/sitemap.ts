@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/maths`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/calculators`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/search`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    { url: `${baseUrl}/ict`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   const hubPages = hubs.map(hub => ({
@@ -35,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const mathCalculatorPages = mathsCalculatorCategories.flatMap(category => 
     category.calculators.map(calculator => ({
-      url: `${baseUrl}${calculator.href}`,
+      url: `${calculator.href}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
@@ -53,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const ictToolPages = ictToolCategories.flatMap(category => 
     category.tools.map(tool => ({
-      url: `${baseUrl}${tool.href}`,
+      url: `${tool.href}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
