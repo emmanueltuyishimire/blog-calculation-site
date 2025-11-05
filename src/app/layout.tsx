@@ -86,7 +86,6 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3042243846300811"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
         />
       </head>
       <body className="font-body antialiased flex min-h-screen flex-col bg-background" suppressHydrationWarning>
