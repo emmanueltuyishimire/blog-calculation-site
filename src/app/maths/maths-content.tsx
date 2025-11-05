@@ -6,11 +6,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { mathsCalculatorCategories } from '@/lib/maths-calculators';
-import { physicsCalculatorCategories } from '@/lib/physics-calculators';
 import { useSearchParams } from 'next/navigation';
-import { useState, useMemo, useEffect, Suspense } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
-function CalculatorsContent() {
+export default function MathsContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
@@ -19,31 +18,25 @@ function CalculatorsContent() {
     setSearchQuery(initialQuery);
   }, [initialQuery]);
 
-  const allCategories = useMemo(() => [
-      ...mathsCalculatorCategories.map(c => ({...c, type: 'Maths'})),
-      ...physicsCalculatorCategories.map(c => ({...c, type: 'Physics'})),
-  ], []);
-
-  const filteredCategories = useMemo(() => {
-    if (!searchQuery) return allCategories;
-    const lowerCaseQuery = searchQuery.toLowerCase();
-    return allCategories.map(category => ({
+  const filteredMathsCategories = useMemo(() => {
+    if (!searchQuery) return mathsCalculatorCategories;
+    return mathsCalculatorCategories.map(category => ({
       ...category,
       calculators: category.calculators.filter(calculator =>
-        calculator.name.toLowerCase().includes(lowerCaseQuery)
+        calculator.name.toLowerCase().includes(searchQuery.toLowerCase())
       ),
     })).filter(category => category.calculators.length > 0);
-  }, [searchQuery, allCategories]);
+  }, [searchQuery]);
 
-  const noResults = filteredCategories.length === 0;
+  const noResults = filteredMathsCategories.length === 0;
 
   return (
     <AppLayout>
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-            <h1 className="text-3xl font-bold tracking-tight font-headline">All Calculators</h1>
+            <h1 className="text-3xl font-bold tracking-tight font-headline">Maths Calculators</h1>
             <p className="mt-2 text-muted-foreground">
-                {searchQuery ? `Showing results for "${searchQuery}"` : "Your free resource for all things math and science. From basic arithmetic to advanced physics."}
+                {searchQuery ? `Showing results for "${searchQuery}"` : "Your free resource for all things math. From basic arithmetic to advanced calculus."}
             </p>
         </div>
         
@@ -54,8 +47,8 @@ function CalculatorsContent() {
             </div>
         ) : (
             <div className="space-y-8">
-            {filteredCategories.map((category) => (
-                <Card key={`${category.type}-${category.name}`}>
+            {filteredMathsCategories.map((category) => (
+                <Card key={category.name}>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <category.icon className="text-primary size-6" />
@@ -79,13 +72,4 @@ function CalculatorsContent() {
       </div>
     </AppLayout>
   );
-}
-
-
-export default function CalculatorsPage() {
-    return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <CalculatorsContent />
-        </Suspense>
-    )
 }
