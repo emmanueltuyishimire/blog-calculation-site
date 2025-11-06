@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const hubPages = hubs.map(hub => ({
-    url: `${baseUrl}${hub.href}`,
+    url: hub.href.startsWith('http') ? hub.href : `${baseUrl}${hub.href}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
