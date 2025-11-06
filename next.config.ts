@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
     },
   },
   swcMinify: true,
-  reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
   },
