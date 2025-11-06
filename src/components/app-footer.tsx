@@ -1,10 +1,17 @@
 
+'use client';
+
 import Link from 'next/link';
 import { sitePages } from '@/lib/site-pages';
 import { Calculator } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function AppFooter() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-muted text-muted-foreground border-t">
