@@ -1,0 +1,25 @@
+/health/*    https://health1.calculation.site/:splat    200
+/health/*    https://health2.calculation.site/:splat    200
+/health/*    https://health3.calculation.site/:splat    200
+/health/*    https://health4.calculation.site/:splat    200
+/health/*    https://health5.calculation.site/:splat    200
+/health/*    https://health6.calculation.site/:splat    200
+/health/*    https://health7.calculation.site/:splat    200
+/health/*    https://health8.calculation.site/:splat    200
+/health/*    https://health9.calculation.site/:splat    200
+/health/*    https://health10.calculation.site/:splat   200
+
+/finance/*   https://finance.calculation.site/:splat    200
+/math/*      https://maths.calculation.site/:splat      200
+/convertor/* https://unit.calculation.site/:splat       200
+
+/ICT/*       https://ict.calculation.site/:splat       200
+/ICT/*       https://ict1.calculation.site/:splat      200
+/ICT/*       https://ict2.calculation.site/:splat      200
+/ICT/*       https://ict3.calculation.site/:splat      200
+
+/Biology/*   https://bio.calculation.site/:splat       200
+/physics/*   https://phy.calculation.site/:splat       200
+/chemistry/* https://chem.calculation.site/:splat      200
+/sidehastle/* https://hastle.calculation.site/:splat   200
+/crypto/*    https://crypto.calculation.site/:splat    200
