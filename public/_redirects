@@ -1,25 +1,60 @@
-/health/*    https://health1.calculation.site/:splat    200
-/health/*    https://health2.calculation.site/:splat    200
-/health/*    https://health3.calculation.site/:splat    200
-/health/*    https://health4.calculation.site/:splat    200
-/health/*    https://health5.calculation.site/:splat    200
-/health/*    https://health6.calculation.site/:splat    200
-/health/*    https://health7.calculation.site/:splat    200
-/health/*    https://health8.calculation.site/:splat    200
-/health/*    https://health9.calculation.site/:splat    200
-/health/*    https://health10.calculation.site/:splat   200
+# -------------------
+# Health Calculators
+# -------------------
+/health/body-composition/*        https://health1.calculation.site/:splat    200
+/health/nutrition-diet/*         https://health2.calculation.site/:splat    200
+/health/exercise-performance/*   https://health3.calculation.site/:splat    200
+/health/health-monitoring/*      https://health4.calculation.site/:splat    200
+/health/womens-health/*          https://health5.calculation.site/:splat    200
+/health/medical-condition/*      https://health6.calculation.site/:splat    200
+/health/sleep-recovery/*         https://health7.calculation.site/:splat    200
+/health/mental-health/*          https://health8.calculation.site/:splat    200
+/health/longevity-aging/*        https://health9.calculation.site/:splat    200
 
-/finance/*   https://finance.calculation.site/:splat    200
-/math/*      https://maths.calculation.site/:splat      200
-/convertor/* https://unit.calculation.site/:splat       200
+# -------------------
+# Finance Calculators
+# -------------------
+/finance/*                       https://finance.calculation.site/:splat    200
 
-/ICT/*       https://ict.calculation.site/:splat       200
-/ICT/*       https://ict1.calculation.site/:splat      200
-/ICT/*       https://ict2.calculation.site/:splat      200
-/ICT/*       https://ict3.calculation.site/:splat      200
+# -------------------
+# Math Calculators
+# -------------------
+/math/*                          https://maths.calculation.site/:splat      200
 
-/Biology/*   https://bio.calculation.site/:splat       200
-/physics/*   https://phy.calculation.site/:splat       200
-/chemistry/* https://chem.calculation.site/:splat      200
-/sidehastle/* https://hastle.calculation.site/:splat   200
-/crypto/*    https://crypto.calculation.site/:splat    200
+# -------------------
+# Unit / Converter Calculators
+# -------------------
+/convertor/*                      https://unit.calculation.site/:splat       200
+
+# -------------------
+# ICT Tools
+# -------------------
+/ICT/*                            https://ict.calculation.site/:splat       200
+/ICT/*                            https://ict1.calculation.site/:splat      200
+/ICT/*                            https://ict2.calculation.site/:splat      200
+/ICT/*                            https://ict3.calculation.site/:splat      200
+
+# -------------------
+# Biology Calculators
+# -------------------
+/Biology/*                        https://bio.calculation.site/:splat       200
+
+# -------------------
+# Physics Calculators
+# -------------------
+/physics/*                        https://phy.calculation.site/:splat       200
+
+# -------------------
+# Chemistry Calculators
+# -------------------
+/chemistry/*                      https://chem.calculation.site/:splat      200
+
+# -------------------
+# Side Hustle / Misc Tools
+# -------------------
+/sidehastle/*                     https://hastle.calculation.site/:splat   200
+
+# -------------------
+# Crypto Calculators
+# -------------------
+/crypto/*                         https://crypto.calculation.site/:splat    200
