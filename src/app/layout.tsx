@@ -70,32 +70,33 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={cn(inter.variable)}>
       <head>
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-XFXW29LKY3');
-          `,
-          }}
-        />
-         <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XFXW29LKY3"
-        />
-        <Script
-          id="google-adsense"
-          async
-          strategy="lazyOnload"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3042243846300811"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
       </head>
       <body className="font-body antialiased flex min-h-screen flex-col bg-background" suppressHydrationWarning>
+        <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-XFXW29LKY3"
+        />
+        <Script
+            id="google-analytics-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+                __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XFXW29LKY3');
+                `,
+            }}
+        />
+        <Script
+            id="google-adsense"
+            strategy="lazyOnload"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3042243846300811"
+            crossOrigin="anonymous"
+        />
         <AppHeader />
         {children}
         <AppFooter />
