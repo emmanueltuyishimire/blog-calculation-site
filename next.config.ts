@@ -6,8 +6,6 @@ const nextConfig: NextConfig = {
     react: {
       useSuspense: true,
     },
-    emotion: false,
-    styledComponents: false,
   },
   swcMinify: true,
   reactStrictMode: true,

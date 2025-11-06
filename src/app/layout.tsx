@@ -8,7 +8,11 @@ import { cn } from '@/lib/utils';
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 const siteUrl = 'https://calculation.site';
 
